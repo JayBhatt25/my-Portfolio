@@ -1,0 +1,25 @@
+.pr {
+    width: 30%;
+    height: 35vh;
+    margin: 20px 10px 0;
+    border: 2px solid lightgrey;
+    border-radius: 20px 0px 20px 0px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.pr_browser{
+    height:30px;
+    background-color: lightgrey;
+    position: sticky;
+    z-index: 100;
+}
+
+.pr_img {
+    width: 100%;
+   transition: all 5s ease;
+}
+
+.pr:hover .pr_img {
+    transform: translateY(-50%);
+}
