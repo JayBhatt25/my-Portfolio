@@ -1,0 +1,29 @@
+.tm{
+    height:150vh;
+    
+}
+
+.tm_container {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h5 {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 480px){
+    .tm {
+        height:150vh;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+}

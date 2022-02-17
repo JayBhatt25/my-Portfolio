@@ -1,0 +1,101 @@
+.c {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.c_bg {
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(207,169,17,1) 0%, rgba(106,9,121,1) 56%);
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    position: absolute;
+}
+
+.c_container {
+    padding: 50px;
+    display: flex;
+}
+
+.c_left {
+    flex: 1;
+}
+
+.c_right {
+    flex: 1;
+}
+
+.c_title {
+    font-size: 45px;
+    width: 80%;
+}
+
+.c_info_item {
+    display: flex;
+    align-items: center;
+    margin: 50px 0px;
+    font-weight: 300;
+    width: 70%;
+}
+
+.c_icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+input {
+    height: 50px;
+    width: 50%;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    margin: 10px 0px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+textarea {
+    width: 100%;
+    margin: 10px 0px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+button {
+    border: none;
+    padding: 15px;
+    background-color: cyan;
+    width: 100%;
+    cursor: pointer;
+    transition: all 200ms ease;
+    font-weight: 500;
+}
+
+button:hover {
+    transform: scale(1.01);
+
+}
+
+.feedbk{
+    margin-top: 10px;
+    color: green;
+    opacity: 0;
+    
+}
+
+@media screen and(max-width: 480px) {
+    
+    .c_container {
+        display: flex;
+        flex-direction: column;
+    }
+    .c_title {
+        font-size: 40px;
+    }
+}

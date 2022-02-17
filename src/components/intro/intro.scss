@@ -33,18 +33,28 @@
     height: 30px;
     position: absolute;
     bottom: 20px;
-    left: 40%;
+    left: 45%;
     
 }
 .i_bg{
     clip-path: polygon(20% 0%,100% 0%,100% 100%,0% 100%);
-    background-image: url(../../images/pic.png);
+    background-image: url(../../images/pic.webp);
     background-position: center;
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     right: 0;
+}
+.MuiSvgIcon-root{
+    color: #222;
+    margin-left: 10px;
+}
+.links{
+    height:30px;
+    width: 30%;
+    display: flex;
+    align-items: center;
 }
 .i_intro {
     font-size: 30px;
@@ -104,4 +114,27 @@
 
 .p_projectlist{
     display: flex;
+}
+
+@media screen and (max-width: 480px) {
+    .i {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .i_bg {
+        background-position: center -500px;
+    }
+
+    .l_container {
+        padding: 10px;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .title_item {
+        font-size: 17px;
+    }
 }

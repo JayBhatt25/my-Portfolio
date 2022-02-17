@@ -13,7 +13,7 @@ function Projects() {
         </div>
         <div className="p_projectlist">
             {data.map((project) => (
-                 <Project img={project.img} link={project.link} />
+                 <Project title={project.title} img={project.img} link={project.link} tech={project.tech}  />
             ))}
            
            
