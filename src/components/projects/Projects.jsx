@@ -4,14 +4,14 @@ import './projects.scss'
 import data from '../../data'
 function Projects() {
   return (
-    <div className="p">
+    <div id="p" className="p">
         
         <div className="p_texts">
             <h1 className="p_title">Projects</h1>
             <p className="p_desc">Here is a list of personal & academic 
             projects that i have created. </p>
         </div>
-        <div className="p_projectlist">
+        <div id = "p_projectlist" className="p_projectlist">
             {data.map((project) => (
                  <Project title={project.title} img={project.img} link={project.link} tech={project.tech}  />
             ))}

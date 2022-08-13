@@ -48,7 +48,8 @@ const projectdata = [
         img: port,
         link: "https://jay-bhatt-portfolio.web.app/",
         tech: "Technologies: JavaScript, HTML5, CSS3, Firebase, Express.js, React.js, Node.js"
-    }
+    },
+  
 
 ]
 
