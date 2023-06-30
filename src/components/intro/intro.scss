@@ -47,14 +47,17 @@
     right: 0;
 }
 .MuiSvgIcon-root{
-    color: #222;
+    // color: #222;
+    color: white;
     margin-left: 10px;
 }
 .links{
     height:30px;
     width: 30%;
+    margin-top: 1rem;
     display: flex;
     align-items: center;
+
 }
 .i_intro {
     font-size: 30px;
@@ -66,13 +69,13 @@
 }
 
 .i_title {
-    height: 50px;
+    height: 100px;
     overflow: hidden;
 }
 
 .title_item {
     height: 50px;
-    font-size: 30px;
+    font-size: 1rem;
     font-weight: bold;
     color: rgb(95, 240, 240);
     
@@ -84,8 +87,11 @@
 @keyframes move {
    
     
-    50% {
+    33% {
         transform: translateY(-50px);
+    } 
+    66%{
+        transform: translateY(-100px);
     }
    
     
@@ -116,13 +122,15 @@
     display: flex;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 37em) {
     .i {
         display: flex;
         flex-direction: column;
+        padding-top: 2rem;
     }
 
     .i_bg {
+        clip-path: none;
         background-position: center -500px;
     }
 
@@ -135,6 +143,17 @@
     }
 
     .title_item {
-        font-size: 17px;
+        font-size: 0.9rem;
     }
+}
+
+.from-left {
+    transform: translateX(-50%);
+    transition: all 800ms ease-in;
+    opacity: 0;
+}
+
+.from-left.slide-in{
+    transform: translateX(0);
+    opacity: 1;
 }

@@ -75,7 +75,7 @@ function Contact() {
                      <input id='subject'type="text" value={sub} onChange={(e) => setSub(e.target.value)}  placeholder='Subject' name="user_subject"  required/>
                      <input id='email' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Your email' name="user_email"  required/>
                      <textarea rows="5" name="message"  required/>
-                     <button onClick={handleSubmit}>Submit</button>
+                     <button className='contactSubmitButton' onClick={handleSubmit}>Submit</button>
                     
                  </form>
            </div>

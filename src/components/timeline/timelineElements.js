@@ -20,17 +20,7 @@ let timelineElements = [
       icon: "work",
     },
     {
-        id: 3,
-        title: "Software Enginnering Intern",
-        location: "Mumbai, India",
-        description:
-          "Programmed a salable and efficient android application to provide real estate solutions by using React Native. Managed code history using Git. Gained exposure to various web technologies and frameworks. ",
-          gpa: null,
-          date: "Nov 2020 - Feb 2021",
-        icon: "work",
-      },
-    {
-      id: 4,
+      id: 3,
       title: "University of Mumbai",
       location: "Mumbai, India",
       description:

@@ -5,11 +5,11 @@
     border: 2px solid lightgrey;
     border-radius: 20px 0px 20px 0px;
     overflow: hidden;
-    cursor: pointer;
 }
 
 .pr_browser{
     height:30px;
+    align-items: center;
     background-color: lightgrey;
     position: sticky;
     z-index: 100;
@@ -17,6 +17,7 @@
 
 .pr_img {
     height:100%;
+    object-fit: cover;
     width: 100%;
    transition: all 2s ease;
 }

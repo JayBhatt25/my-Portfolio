@@ -4,4 +4,7 @@
 
 .App {
     scrollbar-width: none;
+    background-color: black;
+    color:white;
+    overflow: hidden;
 }

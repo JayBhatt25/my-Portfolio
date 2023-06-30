@@ -3,17 +3,46 @@ import './intro.scss';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
+import { useEffect } from 'react';
+import { useRef } from 'react';
+
 function Intro() {
+
+  const introRef = useRef(null)
+  const appearOptions = {
+    threshold:0
+  }
+  useEffect(() => {
+    const sliders = document.querySelectorAll(".from-left");
+    
+    const appearOnScroll = new IntersectionObserver(function(entries,appearOnScroll){
+      entries.forEach(entry => {
+        if(!entry.isIntersecting){
+          return;
+        } else {
+          entry.target.classList.add("slide-in")
+          appearOnScroll.unobserve(entry.target)
+        }
+      })
+    },appearOptions)
+
+    sliders.forEach(slider => {
+      appearOnScroll.observe(slider)
+    })
+  },[introRef,appearOptions])
+
+  
   return (
     <div className="i">
-        <div className="i_left">
+        <div ref={introRef} className="i_left from-left">
             <div className="l_container">
                 <h2 className="i_intro">Hello, my name is</h2>
                 <h1 className="i_name">Jay Bhatt</h1>
                 <div className="i_title">
                     <div className="t_container">
-                        <div className="title_item">Graduate student at UNC Charlotte.</div>
-                        <div className="title_item">Full-Stack Developer.</div>
+                        <div className="title_item">MS CS @UNCC</div>
+                        <div className="title_item">Full-Stack Developer</div>
+                        <div className="title_item">Android Engineer</div>
                     </div>
                    
                 </div>

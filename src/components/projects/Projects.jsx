@@ -2,18 +2,44 @@ import React from 'react'
 import Project from '../project/Project'
 import './projects.scss'
 import data from '../../data'
+import { useRef } from 'react'
+import { useEffect } from 'react'
 function Projects() {
+
+  const projectRef = useRef(null)
+  const appearOptions = {
+    threshold:0
+  }
+  useEffect(() => {
+    const faders = document.querySelectorAll(".fade-in");
+    
+    const appearOnScroll = new IntersectionObserver(function(entries,appearOnScroll){
+      entries.forEach(entry => {
+        if(!entry.isIntersecting){
+          return;
+        } else {
+          entry.target.classList.add("appear")
+          appearOnScroll.unobserve(entry.target)
+        }
+      })
+    },appearOptions)
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader)
+    })
+  },[projectRef,appearOptions])
+
   return (
     <div id="p" className="p">
         
-        <div className="p_texts">
+        <div className="p_texts fade-in">
             <h1 className="p_title">Projects</h1>
             <p className="p_desc">Here is a list of personal & academic 
             projects that i have created. </p>
         </div>
-        <div id = "p_projectlist" className="p_projectlist">
+        <div id = "p_projectlist" ref={projectRef} className="p_projectlist fade-in">
             {data.map((project) => (
-                 <Project title={project.title} img={project.img} link={project.link} tech={project.tech}  />
+                 <Project  className="project_item" title={project.title} img={project.img} link={project.link} tech={project.tech}  />
             ))}
            
            

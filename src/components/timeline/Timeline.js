@@ -12,9 +12,9 @@ function Timeline() {
     let workIconStyles = { background: "#06D6A0" };
     let schoolIconStyles = { background: "#f9c74f" };
   return (
-    <div className="tm">
+    <div className="tm" id='timeline'>
         <div className="tm_container">
-                <h1 className="title">Education</h1>
+                <h1 className="tm_title">Education</h1>
             <VerticalTimeline>
                 {timelineElements.map((element) => {
                 let isWorkIcon = element.icon === "work";
