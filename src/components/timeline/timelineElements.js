@@ -4,8 +4,8 @@ let timelineElements = [
       title: "University of North Carolina at Charlotte",
       location: "Charlotte,NC",
       description:
-        "Relevent Subjects:  Network-based Application Development, Data Structures and Algorithm, Parallel Computing, Computer comm and network, Knowledge Discovery in Databases, Bigdata Analytics for Competitive Advantage.",
-      gpa: "4.0/4.0 CGPA",
+        "Relevent Subjects:  Android Application Development, Network-based Application Development, Data Structures and Algorithm, Parallel Computing, Bigdata Analytics for Competitive Advantage.",
+      gpa: "3.9/4.0 CGPA",
         date: "August 2021 - May 2023",
       icon: "univ",
     },
@@ -13,10 +13,9 @@ let timelineElements = [
       id: 2,
       title: "Instructional Assistant",
       location: "Charlotte, North Carolina",
-      description:
-        "Tutored graduate students for Parallel Computing under prof. Tyler Allen, Responsibilities - grading assignments of over 40 students, evaluating assignments, and conducting office hours, Assisted graduate students articulate technical challenges and solutions.",
+      description: "Delivered effective instruction in lab sessions for a group of 40+ students, clearly communicating complex concepts and ensuring understanding through active engagement and hands-on activities || Graded 120+ student assignments per week, ensuring prompt feedback and thorough understanding of the material by effectively allocating and utilizing time",
         gpa: null,
-        date: "Aug 2022 - Present",
+        date: "Aug 2022 - May 2023",
       icon: "work",
     },
     {

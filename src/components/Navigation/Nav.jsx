@@ -36,11 +36,9 @@ function Nav(){
                         spy={true}
                         smooth={true}
                         hashSpy={true}
-                        // offset={50}
                         duration={500}
                         delay={500}
                         isDynamic={true}>
-                        <HomeIcon className='home-icon' />
                         Home
                         </Link>
                     </li>
@@ -48,17 +46,24 @@ function Nav(){
                         <Link to="p" className='nav-links' spy={true}
                         smooth={true}
                         hashSpy={true}
-                        offset={50}
                         duration={500}
                         delay={500}>
                             Projects
                         </Link>
                     </li>
                     <li className="nav-item">
+                        <Link to="skills" className='nav-links' spy={true}
+                        smooth={true}
+                        hashSpy={true}
+                        duration={500}
+                        delay={500}>
+                            Skills
+                        </Link>
+                    </li>
+                    <li className="nav-item">
                         <Link className='nav-links' to="timeline" spy={true}
                         smooth={true}
                         hashSpy={true}
-                        offset={50}
                         duration={500}
                         delay={500}>
                             Education
@@ -68,7 +73,6 @@ function Nav(){
                     <Link className='nav-links' to="c" spy={true}
                         smooth={true}
                         hashSpy={true}
-                        offset={50}
                         duration={500}
                         delay={500}>
                             Contact

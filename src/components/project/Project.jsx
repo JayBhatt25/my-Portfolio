@@ -1,6 +1,6 @@
 import React from 'react'
 import './project.scss'
-function Project({title,img, link, tech}) {
+function Project({title,img, liveLink, githubLink,desc, tech}) {
   return (
     <div className="pr">
 
@@ -13,13 +13,16 @@ function Project({title,img, link, tech}) {
             </div>
             
         </div>
-        <a target="_blank" rel="noreferrer" href={link}>
-            <img src={img} alt='' className="pr_img"></img>
+        <a target="_blank" rel="noreferrer" href={liveLink? liveLink : githubLink}>
+            <img loading='lazy' src={img} alt='' className="pr_img"></img>
         </a>
         <div className="pr_tech">
+          <p>{desc}</p>
+          <br/>
           <p>{tech}
           </p>
-          {link ? ( <a href={link}>Try it out! </a>): (<div> </div>)}
+          {liveLink ? ( <a href={liveLink}>Try it out! </a>): (<div> </div>)}
+          {githubLink ? ( <a href={githubLink}>View Github </a>): (<div> </div>)}
          
         </div>
     </div>

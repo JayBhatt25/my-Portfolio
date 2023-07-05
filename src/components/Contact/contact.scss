@@ -71,7 +71,7 @@ textarea {
 .contactSubmitButton {
     border: none;
     padding: 15px;
-    background-color: cyan;
+    background-color: rgb(216, 60, 96);
     width: 100%;
     cursor: pointer;
     transition: all 200ms ease;
@@ -90,7 +90,7 @@ textarea {
     
 }
 
-@media screen and(max-width: 35em) {
+@media screen and(max-width: 37em) {
     
     .c_container {
         display: flex;

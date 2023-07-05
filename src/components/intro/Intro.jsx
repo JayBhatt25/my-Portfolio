@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import './intro.scss';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import { useEffect } from 'react';
-import { useRef } from 'react';
+import JayResume from '../../files/Jay_Bhatt_Resume.pdf'
+
 
 function Intro() {
 
@@ -13,14 +13,14 @@ function Intro() {
     threshold:0
   }
   useEffect(() => {
-    const sliders = document.querySelectorAll(".from-left");
+    const sliders = document.querySelectorAll(".fade-in");
     
     const appearOnScroll = new IntersectionObserver(function(entries,appearOnScroll){
       entries.forEach(entry => {
         if(!entry.isIntersecting){
           return;
         } else {
-          entry.target.classList.add("slide-in")
+          entry.target.classList.add("appear")
           appearOnScroll.unobserve(entry.target)
         }
       })
@@ -34,9 +34,9 @@ function Intro() {
   
   return (
     <div className="i">
-        <div ref={introRef} className="i_left from-left">
+        <div ref={introRef} className="i_left fade-in">
             <div className="l_container">
-                <h2 className="i_intro">Hello, my name is</h2>
+                <h2 className="i_intro">Hello, I am</h2>
                 <h1 className="i_name">Jay Bhatt</h1>
                 <div className="i_title">
                     <div className="t_container">
@@ -47,8 +47,9 @@ function Intro() {
                    
                 </div>
                 <div className="i_desc">
-                   <p>I am a UNC Charlotte graduate student getting a master's degree in computer science. I'm a dedicated 
-                       web developer/software developer on the lookout for new opportunities.</p> 
+                   <p>I am a passionate software engineer recently graduated from University of North Carolina at Chatlotte with Masters in Computer Science 
+                    on the lookout for new job opportunities.</p>
+                    <br></br> 
                 </div>
                 <div className="links">
                     <div className="i_home">
@@ -60,6 +61,11 @@ function Intro() {
                     <div className="i_contact">
                       <a alt='Email' href="mailto:jaybhatt2502@gmail.com"><EmailIcon /></a>
                     </div>
+                </div>
+                <div className="i_resume">
+                  <a href={JayResume} download="Jay_Bhatt_Resume" target="_blank">
+                    <button className="download-btn">My Resume</button>
+                  </a>
                 </div>
             </div>
         </div>

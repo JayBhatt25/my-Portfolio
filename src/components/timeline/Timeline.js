@@ -28,7 +28,7 @@ function Timeline() {
                     iconStyle={isWorkIcon ? workIconStyles : schoolIconStyles}
                     icon={isWorkIcon ? <WorkIcon /> : <SchoolIcon />}
                     >
-                    <h3 className="vertical-timeline-element-title">
+                    <h3 className="vt_title vertical-timeline-element-title">
                         {element.title}
                     </h3>
                     <h5 className="vertical-timeline-element-subtitle">

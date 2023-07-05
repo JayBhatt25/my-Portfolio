@@ -5,6 +5,7 @@ import Projects from './components/projects/Projects';
 import Contact from './components/Contact/Contact';
 import Timeline from './components/timeline/Timeline';
 import Navigation from './components/Navigation/Nav'
+import Skills from './components/skills/skills'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Navigation />
         <Intro />
         <Projects />
+        <Skills />
         <Timeline />
         <Contact />
     </div>

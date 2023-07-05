@@ -63,7 +63,7 @@ function Contact() {
                     </div>
                     <div className="c_info_item">
                         <img src={Address} alt="Address img" className="c_icon" />
-                        9523, University Terrace Drive, Apt F, Charlotte, NC
+                        Charlotte, NC
                     </div>
                     
                 </div>

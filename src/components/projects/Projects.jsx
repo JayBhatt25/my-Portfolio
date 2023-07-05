@@ -34,12 +34,12 @@ function Projects() {
         
         <div className="p_texts fade-in">
             <h1 className="p_title">Projects</h1>
-            <p className="p_desc">Here is a list of personal & academic 
-            projects that i have created. </p>
+            <p className="p_desc">My personal & academic 
+            projects</p>
         </div>
         <div id = "p_projectlist" ref={projectRef} className="p_projectlist fade-in">
             {data.map((project) => (
-                 <Project  className="project_item" title={project.title} img={project.img} link={project.link} tech={project.tech}  />
+                 <Project  className="project_item" githubLink={project.githubLink} title={project.title} desc={project.desc} img={project.img} liveLink={project.liveLink} tech={project.tech}  />
             ))}
            
            
