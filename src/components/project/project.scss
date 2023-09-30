@@ -5,7 +5,7 @@
     border: 2px solid lightgrey;
     border-radius: 20px 0px 20px 0px;
     background-color: black;
-    
+    flex-grow: 1;
     overflow: hidden;
 }
 
@@ -45,7 +45,6 @@
 .pr_tech {
     height: 20px;
     width:100%;
-    
 }
 
 .pr_title{

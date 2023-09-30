@@ -4,9 +4,18 @@ import taskmaster from './images/taskmaster.webp'
 import airquality from './images/airquality.webp'
 import porfolio from './images/porfolio.webp'
 import schedulewizard from './images/schedulewizard.webp'
+import snapglimpse from './images/snapglimpse.png'
 const projectdata = [
     {
         id: 1,
+        title: "SnapGlimpse – Delivering Instant News Insights!",
+        img: snapglimpse,
+        desc: "Developed a news web application, swiftly aggregating and showcasing news from 4 nations, 7000+ sources, and 13 languages in real-time through integration with an external API",
+        liveLink: "https://snap-glimpse-jaybhatt25.vercel.app/news/technology",
+        tech: "Technologies:TypeScript, HTML5, Tailwind CSS, React, Next.js 13, GraphQL, StepZen"
+    },
+    {
+        id: 2,
         title: "Ecomm Web App - Amazon clone",
         img: amazon,
         desc: "A clone of Amazon's e-commerce web app",
@@ -14,7 +23,7 @@ const projectdata = [
         tech: "Technologies: JavaScript, HTML5, CSS3, Firebase, Express.js, React.js, Node.js"
     },
     {
-        id: 2,
+        id: 3,
         title: "Entity RESTful API",
         desc: "A user-friendly and well-documented RESTful API designed to identify, extract, and return sensitive information from an input string",
         img: entityApiProj,
@@ -22,7 +31,7 @@ const projectdata = [
         tech: "Technologies: JavaScript, Node.js, Express.js,Azure Cognitive Services, Swagger"
     },
     {
-        id: 3,
+        id: 4,
         title: "Portolio Website",
         desc: "A fully responsive and user-friendly website to showcase my skillset",
         img: porfolio,
@@ -30,7 +39,7 @@ const projectdata = [
         tech: "Technologies: JavaScript, HTML5, CSS3, SASS, Firebase, Express.js, React.js, Node.js"
     },
     {
-        id: 4,
+        id: 5,
         title: "ScheduleWizard++",
         desc: "A web application that automatically extracts class schedule information from images and syncs selected classes to Google Calendar, resulting in a 75% reduction in effort for users",
         img: schedulewizard,
@@ -53,7 +62,7 @@ const projectdata = [
         liveLink: "https://github.com/JayBhatt25/OpenAQ-AWS/tree/main",
         tech: "Technologies: Python, Pandas, PySpark, Streamlit, plotly"
     },
-  
+    
 
 ]
 

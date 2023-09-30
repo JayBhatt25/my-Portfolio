@@ -1,12 +1,13 @@
-import React from 'react'
 import Project from '../project/Project'
 import './projects.scss'
 import data from '../../data'
-import { useRef } from 'react'
-import { useEffect } from 'react'
+import React,{ useEffect, useState } from 'react'
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 function Projects() {
 
-  const projectRef = useRef(null)
+  const [projects, setProjects] = useState(data.slice(0, 3));
+  const [showMoreIcon, setShowMoreIcon] = useState(true);
   const appearOptions = {
     threshold:0
   }
@@ -27,7 +28,21 @@ function Projects() {
     faders.forEach(fader => {
       appearOnScroll.observe(fader)
     })
-  },[projectRef,appearOptions])
+  },[showMoreIcon,projects,appearOptions])
+
+  const handleMore = () => {
+    if(projects.length === data.length) {
+      setShowMoreIcon(true)
+      setProjects(data.slice(0,3))
+      return
+    } else if(projects.length + 3 >= data.length){
+      setShowMoreIcon(false)
+      setProjects(data)
+      return
+    }
+
+    setProjects(data.slice(0, projects.length + 3))
+  }
 
   return (
     <div id="projects" className="p">
@@ -37,13 +52,12 @@ function Projects() {
             <p className="p_desc">My personal & academic 
             projects</p>
         </div>
-        <div id = "p_projectlist" ref={projectRef} className="p_projectlist fade-in">
-            {data.map((project) => (
-                 <Project  className="project_item" githubLink={project.githubLink} title={project.title} desc={project.desc} img={project.img} liveLink={project.liveLink} tech={project.tech}  />
+        <div id = "p_projectlist" className="p_projectlist fade-in">
+            {projects.map((project) => (
+                 <Project key={project.id}  className="project_item" githubLink={project.githubLink} title={project.title} desc={project.desc} img={project.img} liveLink={project.liveLink} tech={project.tech}  />
             ))}
-           
-           
         </div>
+        <button className="seeMore-btn" onClick={handleMore}>{showMoreIcon ? <KeyboardDoubleArrowDownIcon sx={{fontSize: 30 }} /> : <KeyboardDoubleArrowUpIcon sx={{fontSize: 30 }} />}</button>
     </div>
   )
 }

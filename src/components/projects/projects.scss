@@ -2,12 +2,14 @@
     height: auto;
     overflow: hidden;
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .p_projectlist {
     display: flex;
-    flex-wrap: wrap;
-    justify-content:space-between;
+    flex-flow: row wrap;
+    justify-content:space-around;
     height: auto;
     width: 90%;
     padding: 2rem 2%;
@@ -15,6 +17,18 @@
     
 }
 
+.project_item{
+    flex-grow: 1;
+}
+
+.seeMore-btn{
+    margin-top: 1rem;
+    cursor: pointer;
+    align-items: center;
+    border: none;
+    padding: 1rem;
+    background: none;
+}
 @media screen and (max-width: 80em){
     .p_title {
         font-size: 12vw;

@@ -21,8 +21,8 @@ function Project({title,img, liveLink, githubLink,desc, tech}) {
           <br/>
           <p>{tech}
           </p>
-          {liveLink ? ( <a href={liveLink}>Try it out! </a>): (<div> </div>)}
-          {githubLink ? ( <a href={githubLink}>View Github </a>): (<div> </div>)}
+          {liveLink ? ( <a target="_blank" rel="noreferrer" href={liveLink}>Try it out! </a>): (<div> </div>)}
+          {githubLink ? ( <a target="_blank" rel="noreferrer" href={githubLink}>View Github </a>): (<div> </div>)}
          
         </div>
     </div>
