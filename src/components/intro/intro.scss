@@ -2,13 +2,14 @@
     --clr-neon: hsl(317 100% 54%);
     --clr-bg: hsl(323 21% 16%);
   }
-.i {
+.index {
     display: flex;
     height: 100vh;
     
     > .i_left{
         flex: 1;
         display: flex;
+        margin-bottom: 10px;
         align-items: center;
         justify-content: center;
         overflow: hidden;
@@ -25,7 +26,7 @@
     }
 }
 .l_container {
-    height: 50%;
+    height: 400px;
     padding: 50px;
     display: flex;
     flex-direction: column;
@@ -76,7 +77,7 @@
 }
 
 .i_title {
-    height: 100px;
+    height: 90px;
     overflow: hidden;
 }
 
@@ -130,7 +131,7 @@
 }
 
 @media screen and (max-width: 37em) {
-    .i {
+    .index {
         display: flex;
         flex-direction: column;
         padding-top: 2rem;

@@ -14,7 +14,7 @@ function Timeline() {
   return (
     <div className="tm" id='timeline'>
         <div className="tm_container">
-                <h1 className="tm_title">Education</h1>
+                <h1 className="tm_title">Education & Exp</h1>
             <VerticalTimeline>
                 {timelineElements.map((element) => {
                 let isWorkIcon = element.icon === "work";
@@ -34,7 +34,13 @@ function Timeline() {
                     <h5 className="vertical-timeline-element-subtitle">
                         {element.location}
                     </h5>
-                    <p id="description">{element.description}</p>
+                    <ul className="description-points">
+                        {element?.description.map((desc) => {
+                            return (
+                                <li><p>{desc}</p></li>
+                            )
+                        })}
+                    </ul>
                     {element.gpa ? (<h5>{element.gpa}</h5>) : (<div></div>)}
                     </VerticalTimelineElement>
                 );

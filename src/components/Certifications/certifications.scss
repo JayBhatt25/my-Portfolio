@@ -1,0 +1,104 @@
+.certifications {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+.cert-item{
+    display: flex;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.cert-item-right{
+    color: white;
+    padding: 2em;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:first baseline;
+    border: 2px dashed white;
+    > p {
+        margin: 0.5em 0;
+    }
+}
+
+@media screen and (max-width: 80em){
+   .certifications {
+    height: auto;
+   }
+    .cert-item {
+        flex-direction: column;
+        align-items: center;
+        > img {
+          position: relative;
+          width: 200px;
+           height: 200px;
+           margin-left: auto;
+           margin-right: auto;
+        }
+    }
+
+    .cert-item-right{
+        margin-top: 2em;
+        
+
+    }
+
+}
+
+
+@media screen and (min-width: 80em){
+   
+    .cert-item {
+        > img {
+          position: relative;
+           height: 70%;
+           margin-top: auto;
+           margin-bottom: auto;
+        }
+    }
+
+    
+}
+
+.certLink-btn{
+    text-decoration: none;
+    margin-top: 5px;
+    background-color: green;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: 0.5s;
+     width: 130px;
+}
+
+.openinnewIcon {
+    display: none;
+    opacity: 0;
+    transition: 0.9s;
+}
+.certLink-btn:hover{
+    width: 140px;
+    display: flex;
+    > .openinnewIcon{
+        display: flex;
+        opacity: 1;
+    }
+}
+
+.cert-container {
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+

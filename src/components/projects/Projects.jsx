@@ -30,7 +30,7 @@ function Projects() {
   },[projectRef,appearOptions])
 
   return (
-    <div id="p" className="p">
+    <div id="projects" className="p">
         
         <div className="p_texts fade-in">
             <h1 className="p_title">Projects</h1>

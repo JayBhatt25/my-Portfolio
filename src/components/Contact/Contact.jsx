@@ -47,7 +47,7 @@ function Contact() {
    };
     
   return (
-    <div className="c">
+    <div className="contact">
        <div className="c_bg"></div>
        <div className="c_container">
            <div className="c_left">

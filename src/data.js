@@ -1,6 +1,4 @@
 import amazon from './images/amazon2.webp'
-import social from './images/social.webp'
-import slack from './images/slack.webp'
 import entityApiProj from './images/entityapi.webp'
 import taskmaster from './images/taskmaster.webp'
 import airquality from './images/airquality.webp'
@@ -23,30 +21,14 @@ const projectdata = [
         liveLink: "https://github.com/JayBhatt25/Entity-rest-api-swagger",
         tech: "Technologies: JavaScript, Node.js, Express.js,Azure Cognitive Services, Swagger"
     },
-    // {
-    //     id: 3,
-    //     title: "Social Media Web App",
-    //     desc: "A web application that imitates the basic features of Instagram",
-    //     img: social,
-    //     liveLink: "https://my-instagram-clone-fd501.web.app/",
-    //     tech: "Technologies: JavaScript, HTML5, CSS3, Firebase, Express.js, React.js, Node.js"
-    // },
     {
         id: 3,
         title: "Portolio Website",
-        desc: "A fully responsive and user-friendly website to showcase my my skillset",
+        desc: "A fully responsive and user-friendly website to showcase my skillset",
         img: porfolio,
         liveLink: "https://jay-bhatt-portfolio.web.app/",
         tech: "Technologies: JavaScript, HTML5, CSS3, SASS, Firebase, Express.js, React.js, Node.js"
     },
-    // {
-    //     id: 4,
-    //     title: "Slack Clone",
-    //     desc: "A clone of slack allowing users to create custom rooms and chat with other users",
-    //     img: slack,
-    //     liveLink: "https://my-slack-clone-6bb20.web.app/room/FDvhnzUOv0RPoSVWT6cN",
-    //     tech: "Technologies: JavaScript, HTML5, CSS3, Firebase, Express.js, React.js, Node.js, Heroku"
-    // },
     {
         id: 4,
         title: "ScheduleWizard++",
@@ -60,7 +42,7 @@ const projectdata = [
         title: "TaskMaster - Todo task manager",
         desc: "A backend-focused CRUD web app that tracks and manages to-do tasks",
         img: taskmaster,
-        liveLink: "http://jay-todo-frontend-bucket.s3-website.us-east-2.amazonaws.com",
+        githubLink: "https://github.com/JayBhatt25/Spring-projects",
         tech: "Technologies: Core Java, Spring Boot, PostgreSQL, HTML5, CSS3, JavaScript, React, Bootstrap, AWS S3, Heroku"
     },
     {

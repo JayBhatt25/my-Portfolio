@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react'
 import {Link} from 'react-scroll'
 import './nav.scss'
-import HomeIcon from '@mui/icons-material/Home';
 
 function Nav(){
     
@@ -32,7 +31,7 @@ function Nav(){
                     <li className="active nav-item">
                     
                         <Link className='nav-links' activeClass="active"
-                        to="i"
+                        to="index"
                         spy={true}
                         smooth={true}
                         hashSpy={true}
@@ -43,12 +42,21 @@ function Nav(){
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="p" className='nav-links' spy={true}
+                        <Link to="projects" className='nav-links' spy={true}
                         smooth={true}
                         hashSpy={true}
                         duration={500}
                         delay={500}>
                             Projects
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="certifications" className='nav-links' spy={true}
+                        smooth={true}
+                        hashSpy={true}
+                        duration={500}
+                        delay={500}>
+                            Certifications
                         </Link>
                     </li>
                     <li className="nav-item">
@@ -60,17 +68,17 @@ function Nav(){
                             Skills
                         </Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item small-font">
                         <Link className='nav-links' to="timeline" spy={true}
                         smooth={true}
                         hashSpy={true}
                         duration={500}
                         delay={500}>
-                            Education
+                           <span>Education & Exp</span>
                         </Link>
                     </li>
                     <li className="nav-item">
-                    <Link className='nav-links' to="c" spy={true}
+                    <Link className='nav-links' to="contact" spy={true}
                         smooth={true}
                         hashSpy={true}
                         duration={500}

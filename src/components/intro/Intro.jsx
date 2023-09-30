@@ -3,7 +3,7 @@ import './intro.scss';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import JayResume from '../../files/Jay_Bhatt_Resume.pdf'
+import JayResume from '../../files/Jay_Bhatt_Resume.docx'
 
 
 function Intro() {
@@ -33,7 +33,7 @@ function Intro() {
 
   
   return (
-    <div className="i">
+    <div className="index">
         <div ref={introRef} className="i_left fade-in">
             <div className="l_container">
                 <h2 className="i_intro">Hello, I am</h2>
@@ -41,14 +41,13 @@ function Intro() {
                 <div className="i_title">
                     <div className="t_container">
                         <div className="title_item">MS CS @UNCC</div>
-                        <div className="title_item">Full-Stack Developer</div>
-                        <div className="title_item">Android Engineer</div>
+                        <div className="title_item">Software Engineer</div>
+                        <div className="title_item">AWS Certified Developer</div>
                     </div>
                    
                 </div>
                 <div className="i_desc">
-                   <p>I am a passionate software engineer recently graduated from University of North Carolina at Chatlotte with Masters in Computer Science 
-                    on the lookout for new job opportunities.</p>
+                   <p>I am an enthusiastic software engineer with over a year of experience in crafting dependable and scalable software solutions. I have just completed my Master's in Computer Science from the University of North Carolina at Charlotte and am currently actively seeking new full-time/contract prospects</p>
                     <br></br> 
                 </div>
                 <div className="links">
@@ -59,7 +58,7 @@ function Intro() {
                       <a alt='LinkedIn' href="https://www.linkedin.com/in/jaybhatt02" target="_blank" rel="noreferrer noopener"><LinkedInIcon /></a>
                     </div>
                     <div className="i_contact">
-                      <a alt='Email' href="mailto:jaybhatt2502@gmail.com"><EmailIcon /></a>
+                      <a alt='Email' href="mailto:jaybhatt2598@gmail.com"><EmailIcon /></a>
                     </div>
                 </div>
                 <div className="i_resume">

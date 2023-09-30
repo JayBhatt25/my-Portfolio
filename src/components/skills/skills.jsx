@@ -6,7 +6,6 @@ import downIcon from '../../images/icons8-thick-arrow-pointing-down-48.webp'
 import upIcon from '../../images/icons8-thick-arrow-pointing-up-48.webp'
 function Skills(){
     const [activeCategory,setActiveCategory] = useState("all");
-    const [prevActiveCategory, setPrevActiveCategory] = useState("web")
     const [visibleCategories, setVisibleCategories] = useState(false)
     const [skillsFilteredData,setSkillsFilteredData] = useState([]);
     const list = document.querySelector(".categories_list");
@@ -76,7 +75,6 @@ function Skills(){
       categoryButton.innerHTML = selectedCategory.toUpperCase()
       setActiveCategory(selectedCategory)
       hideCategoriesList()
-      directionImg.src = downIcon
     }
 
     return (
@@ -86,8 +84,8 @@ function Skills(){
                 <div className="sb_left fade-in">
                     <div className="type_buttons">
                       <div className="category_btn_div">
-                        <button className="tech_btn categoriesBtn" onClick={handleToggleList}>Select Category</button><img class="direction-btn" src={downIcon}></img>
-                         {/* TODO: work on this button */}
+                        <button className="tech_btn categoriesBtn" onClick={handleToggleList}>Select Category</button>
+                         {/* <img class="direction-btn" src={downIcon}></img> */}
                         
                       </div>
                         

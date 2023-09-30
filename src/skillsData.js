@@ -20,6 +20,7 @@ import mysqlIcon from './images/icons8-mysql.svg'
 import sqlIcon from './images/icons8-sql-100.webp'
 import mongoIcon from './images/icons8-mongodb.svg'
 import firestoreIcon from './images/icons8-firestore.svg'
+import typescriptIcon from './images/icons8-typescript.svg'
 
 const skillsdata = [
     {
@@ -148,6 +149,12 @@ const skillsdata = [
         img: firestoreIcon,
         categories: ["all","databases"]
     },
+    {
+        id: 22,
+        skillName: "TypeScript",
+        img: typescriptIcon,
+        categories: ["all","web"]
+    }
 ]
 
 export default skillsdata;
