@@ -13,7 +13,7 @@ let timelineElements = [
     {
       id: 2,
       title: "Instructional Assistant @ UNCC",
-      location: "Charlotte,NC",
+      location: "Charlotte, NC",
       description: [
         "Delivered effective instruction in lab sessions for a group of 40+ students, clearly communicating complex concepts and ensuring understanding through active engagement and hands-on activities",
         "Graded 120+ student assignments per week, ensuring prompt feedback and a thorough understanding of the material"

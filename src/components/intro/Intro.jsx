@@ -3,7 +3,7 @@ import './intro.scss';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import JayResume from '../../files/Jay_Bhatt_Resume.docx'
+import JayResume from '../../files/Jay_Bhatt_Resume.pdf'
 
 
 function Intro() {

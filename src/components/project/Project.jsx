@@ -5,9 +5,6 @@ function Project({title,img, liveLink, githubLink,desc, tech}) {
     <div className="pr">
 
         <div className="pr_browser">
-            {/* <div className="pr_circle">
-            </div>
-            <div className="pr_circle"></div> */}
             <div className="pr_title">
               <h6>{title}</h6>
             </div>
