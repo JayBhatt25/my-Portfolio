@@ -4,6 +4,7 @@ import data from '../../data'
 import React,{ useEffect, useState } from 'react'
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import { Link } from 'react-scroll';
 function Projects() {
 
   const [projects, setProjects] = useState(data.slice(0, 3));
@@ -31,6 +32,7 @@ function Projects() {
   },[showMoreIcon,projects,appearOptions])
 
   const handleMore = () => {
+    
     if(projects.length === data.length) {
       setShowMoreIcon(true)
       setProjects(data.slice(0,3))
@@ -57,7 +59,16 @@ function Projects() {
                  <Project key={project.id}  className="project_item" githubLink={project.githubLink} title={project.title} desc={project.desc} img={project.img} liveLink={project.liveLink} tech={project.tech}  />
             ))}
         </div>
-        <button className="seeMore-btn" onClick={handleMore}>{showMoreIcon ? <KeyboardDoubleArrowDownIcon sx={{fontSize: 30 }} /> : <KeyboardDoubleArrowUpIcon sx={{fontSize: 30 }} />}</button>
+        {showMoreIcon ? <button className="seeMore-btn" onClick={handleMore}> <KeyboardDoubleArrowDownIcon sx={{fontSize: 30 }} /> </button>: 
+        <Link
+          to='projects'
+          onClick={handleMore} smooth={true}
+          hashSpy={true}
+          duration={500}
+          delay={250}
+          isDynamic={true}>
+          <KeyboardDoubleArrowUpIcon sx={{fontSize: 30 }} />
+          </Link>}
     </div>
   )
 }
