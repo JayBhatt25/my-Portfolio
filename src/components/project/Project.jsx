@@ -11,7 +11,7 @@ function Project({title,img, liveLink, githubLink,desc, tech}) {
             
         </div>
         <a target="_blank" rel="noreferrer" href={liveLink? liveLink : githubLink}>
-            <img loading='lazy' src={img} alt='' className="pr_img"></img>
+            <img loading='lazy' src={img} alt={title} className="pr_img"></img>
         </a>
         <div className="pr_tech">
           <p>{desc}</p>
