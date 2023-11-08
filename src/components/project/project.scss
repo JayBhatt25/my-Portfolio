@@ -28,8 +28,11 @@
 .pr:hover .pr_img {
     transform: translateY(-100%);
 }
-
+.pr_desc, .pr_tech_list {
+    font-size: 14px;
+}
 .pr_tech {
+    height: 20px;
     width: 100%;
     transition: all 2s ease;
     > a {
@@ -41,10 +44,6 @@
 .pr:hover .pr_tech {
     transform: translateY(-1200%);
     
-}
-.pr_tech {
-    height: 20px;
-    width:100%;
 }
 
 .pr_title{

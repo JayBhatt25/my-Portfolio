@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './timeline.scss'
 import { ReactComponent as WorkIcon } from "../../images/work.svg";
 import { ReactComponent as SchoolIcon } from "../../images/univ.svg";
@@ -8,16 +8,20 @@ import {
     VerticalTimelineElement,
   } from "react-vertical-timeline-component";
   import "react-vertical-timeline-component/style.min.css";
+import axios from 'axios'
+
+
 function Timeline() {
     let workIconStyles = { background: "#06D6A0" };
     let schoolIconStyles = { background: "#f9c74f" };
+
   return (
     <div className="tm" id='timeline'>
         <div className="tm_container">
                 <h1 className="tm_title">Education & Exp</h1>
             <VerticalTimeline>
                 {timelineElements.map((element) => {
-                let isWorkIcon = element.icon === "work";
+                let isWorkIcon = element.icon == "work";
             
 
                 return (
@@ -41,7 +45,7 @@ function Timeline() {
                             )
                         })}
                     </ul>
-                    {element.gpa ? (<h5>{element.gpa}</h5>) : (<div></div>)}
+                    {element.gpa? (<h5>{element.gpa}</h5>) : (<div></div>)}
                     </VerticalTimelineElement>
                 );
                 })}

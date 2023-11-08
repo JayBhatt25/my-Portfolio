@@ -66,7 +66,7 @@ function Projects() {
           hashSpy={true}
           duration={500}
           delay={250}
-          isDynamic={true}>
+          isDynamic={true} className='seeLess-btn'>
           <KeyboardDoubleArrowUpIcon sx={{fontSize: 30 }} />
           </Link>}
     </div>
