@@ -38,8 +38,26 @@ h1 {
 
 .description-points{
     list-style: none;
+    margin-bottom: 20px;
 }
 
 h5 {
     margin-top: 1rem;
+}
+
+.work-website-link {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding: 0.5rem;
+    background-color: #0C6EFD;
+    color: white;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.25s ease-in-out;
+}
+
+.work-website-link:hover{
+    border-radius: 10px;
 }

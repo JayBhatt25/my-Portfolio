@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+
 import './timeline.scss'
 import { ReactComponent as WorkIcon } from "../../images/work.svg";
 import { ReactComponent as SchoolIcon } from "../../images/univ.svg";
@@ -8,7 +8,7 @@ import {
     VerticalTimelineElement,
   } from "react-vertical-timeline-component";
   import "react-vertical-timeline-component/style.min.css";
-import axios from 'axios'
+
 
 
 function Timeline() {
@@ -35,6 +35,7 @@ function Timeline() {
                     <h3 className="vt_title vertical-timeline-element-title">
                         {element.title}
                     </h3>
+                    
                     <h5 className="vertical-timeline-element-subtitle">
                         {element.location}
                     </h5>
@@ -45,7 +46,8 @@ function Timeline() {
                             )
                         })}
                     </ul>
-                    {element.gpa? (<h5>{element.gpa}</h5>) : (<div></div>)}
+                    {element.link && (<a href={element.link} target="_blank" className="work-website-link">view website</a>)}
+                    {element.gpa && (<h5>{element.gpa}</h5>)}
                     </VerticalTimelineElement>
                 );
                 })}

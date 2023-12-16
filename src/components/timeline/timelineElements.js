@@ -1,7 +1,23 @@
+let elementId = 0;
+
 let timelineElements = [
-    
     {
-      id: 1,
+      id: elementId++,
+      title: "Volunteer Web Developer @ Cyberdetect Solutions",
+      location: "Charlotte, NC",
+      description: [
+        "Engineered the company website using a robust tech stack, including TypeScript, React JS, Next JS, Tailwind CSS, Redux, and Material UI, resulting in a 30% improvement in site performance and a 20% increase in user engagement",
+        "Pioneered the initiation and meticulous gathering of project requirements independently, laying the groundwork for a responsive and engaging website that serves as the cornerstone for Cyberdetect Solutions's online presence",
+        "Coordinated seamlessly with the design team through Figma, ensuring a visually appealing and user-friendly interface",
+        "Managed ongoing updates and enhancements, implementing 15 client-driven changes and strategically planning for future feature additions to align with evolving business needs"
+        
+      ],
+      link: "https://cyberdetectsolutions.com/",
+      date: "Nov 2023 - Present",
+      icon: "work",
+    },
+    {
+      id: elementId++,
       title: "University of North Carolina at Charlotte",
       location: "Charlotte, NC",
       description:
@@ -11,7 +27,7 @@ let timelineElements = [
       icon: "univ",
     },
     {
-      id: 2,
+      id: elementId++,
       title: "Instructional Assistant @ UNCC",
       location: "Charlotte, NC",
       description: [
@@ -22,7 +38,7 @@ let timelineElements = [
       icon: "work",
     },
     {
-      id: 3,
+      id: elementId++,
       title: "Software Engineer @ Realty Pillar Pvt. Ltd.",
       location: "Mumbai, India",
       description: [
@@ -34,7 +50,7 @@ let timelineElements = [
       icon: "work",
     },
     {
-      id: 4,
+      id: elementId++,
       title: "University of Mumbai",
       location: "Mumbai, India",
       description: ["Relevent Subjects:  Android Application Development, Big Data Analytics, Data Structures & Analysis, Computer Forensics, Internet Programming, SQL Lab, Unix Lab"],
