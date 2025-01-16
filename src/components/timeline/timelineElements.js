@@ -1,9 +1,23 @@
 let elementId = 0;
 
-let timelineElements = [
+const timelineElements = [
+  {
+    id: elementId++,
+    title: "Software Engineer @ American Tire Distributors",
+    location: "Charlotte, NC",
+    description: [
+      "Formulated high-performance REST APIs handling 10,000 requests per minute by implementing multithreading, MongoDB indexing, and completable future async calls, optimizing response times by 35%",
+      "Streamlined logging and monitoring by 80% with Spring Aspect Oriented Programming(AOP), enhancing codebase maintainability and reducing redundancy",
+      "Orchestrated robust automation scripts and cron jobs using Python, reducing manual data processing time by 75% and increasing overall team productivity by 30%",
+      "Developed Spring Cloud Data Flow streams to consume Kafka data and load it into MongoDB. Applied Groovy scripts for transformations and filtering, improving processing efficiency by 40%"
+      
+    ],
+    date: "Jan 2024 - Present",
+    icon: "work",
+  },
     {
       id: elementId++,
-      title: "Volunteer Web Developer @ Cyberdetect Solutions",
+      title: "Web Developer Intern @ Cyberdetect Solutions",
       location: "Charlotte, NC",
       description: [
         "Engineered the company website using a robust tech stack, including TypeScript, React JS, Next JS, Tailwind CSS, Redux, and Material UI, resulting in a 30% improvement in site performance and a 20% increase in user engagement",
@@ -13,7 +27,7 @@ let timelineElements = [
         
       ],
       link: "https://cyberdetectsolutions.com/",
-      date: "Nov 2023 - Present",
+      date: "Jan 2024 - Jan 2024",
       icon: "work",
     },
     {

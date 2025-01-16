@@ -3,7 +3,7 @@ import './intro.scss';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import JayResume from '../../files/Jay_Bhatt_Resume.pdf'
+import JayResume from '../../files/Jay_Bhatt_SoftwareEngineer_Resume.pdf'
 
 
 function Intro() {
@@ -41,13 +41,14 @@ function Intro() {
                 <div className="i_title">
                     <div className="t_container">
                         <div className="title_item">MS CS @UNCC</div>
-                        <div className="title_item">Software Engineer</div>
+                        <div className="title_item">Software Engineer @American Tire Distributors</div>
                         <div className="title_item">AWS Certified Developer</div>
+                        <div className="title_item">PriceFx Configuration Engineer</div>
                     </div>
                    
                 </div>
                 <div className="i_desc">
-                   <p>I am an enthusiastic software engineer with over a year of experience in crafting dependable and scalable software solutions. I have just completed my Master's in Computer Science from the University of North Carolina at Charlotte and am currently actively seeking new full-time/contract prospects</p>
+                   <p>Software Enginerr @ American Tire Distibutors with 2+ years of experience in crafting dependable and scalable software solutions actively seeking new full-time/contract prospects</p>
                     <br></br> 
                 </div>
                 <div className="links">
@@ -62,7 +63,7 @@ function Intro() {
                     </div>
                 </div>
                 <div className="i_resume">
-                  <a href={JayResume} download="Jay_Bhatt_Resume" target="_blank">
+                  <a href={JayResume} download="Jay_Bhatt_SoftwareEngineer_Resume" target="_blank">
                     <button className="download-btn">My Resume</button>
                   </a>
                 </div>
