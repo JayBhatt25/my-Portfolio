@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './skills.scss'
+import '../shared/animated-titles.scss'
 import skillsData from '../../skillsData'
 import SkillItem from '../skill-item-component/skill-item'
 import downIcon from '../../images/icons8-thick-arrow-pointing-down-48.webp'
@@ -89,7 +90,7 @@ function Skills(){
 
     return (
         <div id='skills' className="skills">
-            <h1 className="skills_title fade-in">SKILLS</h1>
+            <h1 className="skills_title animated-title skills-title fade-in">SKILLS</h1>
             <div className="skills_bottom">
                 <div className="sb_left fade-in">
                     <div className="type_buttons">

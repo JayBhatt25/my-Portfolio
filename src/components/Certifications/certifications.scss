@@ -8,6 +8,21 @@
     overflow: hidden;
 }
 
+.cert_title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.App.light-mode .cert_title:not(.animated-title) {
+    color: black;
+}
+
+.App.dark-mode .cert_title:not(.animated-title) {
+    color: white;
+}
+
 .cert-item{
     display: flex;
     padding: 1em;
@@ -24,9 +39,20 @@
     justify-content: space-between;
     align-items:first baseline;
     border: 2px dashed white;
+    transition: color 0.3s ease, border-color 0.3s ease;
     > p {
         margin: 0.5em 0;
     }
+}
+
+.App.light-mode .cert-item-right {
+    color: black;
+    border-color: #333;
+}
+
+.App.dark-mode .cert-item-right {
+    color: white;
+    border-color: white;
 }
 
 @media screen and (max-width: 80em){

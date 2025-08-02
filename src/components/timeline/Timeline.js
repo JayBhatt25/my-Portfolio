@@ -1,5 +1,6 @@
 
 import './timeline.scss'
+import '../shared/animated-titles.scss'
 import { ReactComponent as WorkIcon } from "../../images/work.svg";
 import { ReactComponent as SchoolIcon } from "../../images/univ.svg";
 import timelineElements from "./timelineElements";
@@ -8,18 +9,23 @@ import {
     VerticalTimelineElement,
   } from "react-vertical-timeline-component";
   import "react-vertical-timeline-component/style.min.css";
+import { useContext } from 'react';
+import { ThemeContext } from '../../context';
 
 
 
 function Timeline() {
+    const { state } = useContext(ThemeContext);
     let workIconStyles = { background: "#06D6A0" };
     let schoolIconStyles = { background: "#f9c74f" };
 
   return (
     <div className="tm" id='timeline'>
         <div className="tm_container">
-                <h1 className="tm_title">Education & Exp</h1>
-            <VerticalTimeline>
+                <h1 className="tm_title animated-title timeline-title" data-text="Education & Exp">Education & Exp</h1>
+            <VerticalTimeline
+            lineColor={state.darkMode ? "white" : "black"}
+            >
                 {timelineElements.map((element) => {
                 let isWorkIcon = element.icon == "work";
             
@@ -31,6 +37,8 @@ function Timeline() {
                     dateClassName="date"
                     iconStyle={isWorkIcon ? workIconStyles : schoolIconStyles}
                     icon={isWorkIcon ? <WorkIcon /> : <SchoolIcon />}
+                    contentArrowStyle={state.darkMode ? { borderRight: '7px solid  white' }: { borderRight: '7px solid  black' }}
+                    textClassName={"vt-tm-text"}
                     >
                     <h3 className="vt_title vertical-timeline-element-title">
                         {element.title}

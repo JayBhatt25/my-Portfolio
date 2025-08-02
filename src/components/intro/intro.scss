@@ -39,7 +39,16 @@
     position: absolute;
     bottom: 20px;
     left: 45%;
-    
+    stroke: white;
+    transition: stroke 0.3s ease;
+}
+
+.App.light-mode .i_scroll {
+    stroke: black;
+}
+
+.App.dark-mode .i_scroll {
+    stroke: white;
 }
 .i_bg{
     clip-path: polygon(20% 0%,100% 0%,100% 100%,0% 100%);
@@ -52,11 +61,17 @@
     right: 0;
 }
 .MuiSvgIcon-root{
-    // color: #222;
     color: white;
     margin-left: 10px;
-    
-    
+    transition: color 0.3s ease;
+}
+
+.App.light-mode .MuiSvgIcon-root {
+    color: #222;
+}
+
+.App.dark-mode .MuiSvgIcon-root {
+    color: white;
 }
 .links{
     height:30px;
@@ -165,6 +180,18 @@
     text-transform: uppercase;
     transition: 0.5s;
     border: none;
+    background-color: #f0f0f0;
+    color: #222;
+}
+
+.App.light-mode .download-btn {
+    background-color: #f0f0f0;
+    color: #222;
+}
+
+.App.dark-mode .download-btn {
+    background-color: #333;
+    color: white;
 }
 
 .download-btn:hover {

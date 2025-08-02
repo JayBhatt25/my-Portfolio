@@ -14,6 +14,7 @@
         margin-right: auto;
         display: flex;
         overflow: hidden;
+        transition: background-color 0.3s ease;
     }
 }
 
@@ -29,11 +30,32 @@
     overflow-y: scroll;
 }
 
+.App.light-mode .sb_right {
+    background-color: black;
+    color: white;
+}
+
+.App.dark-mode .sb_right {
+    background-color: white;
+    color: #222;
+}
+
 
 .skills_title {
     margin-left: auto;
     margin-right: auto;
     flex: 0.1;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.App.light-mode .skills_title:not(.animated-title) {
+    color: black;
+}
+
+.App.dark-mode .skills_title:not(.animated-title) {
+    color: white;
 }
 
 .sb_left {
@@ -42,6 +64,23 @@
     border: 5px solid rgb(216, 60, 96);
     border-right: none;
     height: auto;
+    transition: background-color 0.3s ease;
+}
+
+.App.light-mode .skills_bottom {
+    background-color: white;
+}
+
+.App.light-mode .sb_left {
+    background-color: #f8f8f8;
+}
+
+.App.dark-mode .skills_bottom {
+    background-color: #222;
+}
+
+.App.dark-mode .sb_left {
+    background-color: black;
 }
 
 .type_buttons{
@@ -150,6 +189,14 @@
     align-items: center;
     transition: all 250ms ease-out;
     border: none;
+}
+
+.App.light-mode .tech_btn {
+    color: #222;
+}
+
+.App.dark-mode .tech_btn {
+    color: white;
 }
 
 .tech_btn:hover{

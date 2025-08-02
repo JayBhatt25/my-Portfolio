@@ -7,6 +7,17 @@
     background-color: black;
     flex-grow: 1;
     overflow: hidden;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.App.light-mode .pr {
+    background-color: #f8f8f8;
+    border-color: #ddd;
+}
+
+.App.dark-mode .pr {
+    background-color: black;
+    border-color: lightgrey;
 }
 
 .pr_browser{
@@ -38,7 +49,16 @@
     > a {
         text-decoration: none;
         color: cyan;
+        transition: color 0.3s ease;
     }
+}
+
+.App.light-mode .pr_tech > a {
+    color: #0066cc;
+}
+
+.App.dark-mode .pr_tech > a {
+    color: cyan;
 }
 
 .pr:hover .pr_tech {
@@ -54,10 +74,21 @@
     height: 100%;
     background-color:lightgrey;
     color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
    
     >h6{
         padding-top: 1%;
     }
+}
+
+.App.light-mode .pr_title {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.App.dark-mode .pr_title {
+    background-color: #333;
+    color: white;
 }
 
 @media screen and (max-width: 37em){

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import './contact.scss'
+import '../shared/animated-titles.scss'
 import Phone from '../../images/phone.webp'
 import Email from '../../images/email.webp'
 import Address from '../../images/address.webp'
@@ -51,7 +52,7 @@ function Contact() {
        <div className="c_bg"></div>
        <div className="c_container">
            <div className="c_left">
-                <h1 className="c_title">Interested in my work ? Contact Me!</h1>
+                <h1 className="c_title animated-title contact-title">Interested in my work ? Contact Me!</h1>
                 <div className="c_info">
                     <div className="c_info_item">
                         <img src={Phone} alt="Phone img" className="c_icon" />

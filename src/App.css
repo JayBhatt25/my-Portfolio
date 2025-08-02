@@ -1,10 +1,28 @@
+@import './components/shared/animated-titles.scss';
+
 .App::-webkit-scrollbar{
     display: none;
 }
 
 .App {
     scrollbar-width: none;
-    background-color: black;
-    color:white;
     overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.App.light-mode {
+    background-color: white;
+    color: black;
+}
+
+.App.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/* Ensure navigation buttons are always clickable */
+.theme-toggle,
+.mobile-nav-toggle {
+    pointer-events: auto !important;
+    user-select: none !important;
 }

@@ -65,3 +65,31 @@
 .fade-in.appear {
     opacity: 1;
 }
+
+.p_title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.App.light-mode .p_title:not(.animated-title) {
+    color: black;
+}
+
+.App.dark-mode .p_title:not(.animated-title) {
+    color: white;
+}
+
+.seeMore-btn {
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.App.light-mode .seeMore-btn {
+    color: black;
+}
+
+.App.dark-mode .seeMore-btn {
+    color: white;
+}

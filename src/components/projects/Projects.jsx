@@ -1,5 +1,6 @@
 import Project from '../project/Project'
 import './projects.scss'
+import '../shared/animated-titles.scss'
 import data from '../../data'
 import React,{ useEffect, useState } from 'react'
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
@@ -50,7 +51,7 @@ function Projects() {
     <div id="projects" className="p">
         
         <div className="p_texts fade-in">
-            <h1 className="p_title">Projects</h1>
+            <h1 className="p_title animated-title projects-title">Projects</h1>
             <p className="p_desc">My personal & academic 
             projects</p>
         </div>

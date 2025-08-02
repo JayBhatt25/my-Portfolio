@@ -27,8 +27,19 @@
 }
 
 .c_title {
-    font-size: 45px;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
     width: 80%;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.App.light-mode .c_title:not(.animated-title) {
+    color: black;
+}
+
+.App.dark-mode .c_title:not(.animated-title) {
+    color: white;
 }
 
 .c_info_item {
@@ -59,6 +70,19 @@ input {
     margin: 10px 0px;
     padding-left: 10px;
     font-size: 14px;
+    background: transparent;
+    color: inherit;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.App.light-mode input {
+    color: #222;
+    border-bottom-color: #ccc;
+}
+
+.App.dark-mode input {
+    color: white;
+    border-bottom-color: lightgrey;
 }
 
 textarea {
@@ -66,6 +90,20 @@ textarea {
     margin: 10px 0px;
     padding-left: 10px;
     font-size: 14px;
+    background: transparent;
+    color: inherit;
+    border: 1px solid lightgrey;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.App.light-mode textarea {
+    color: #222;
+    border-color: #ccc;
+}
+
+.App.dark-mode textarea {
+    color: white;
+    border-color: lightgrey;
 }
 
 .contactSubmitButton {
@@ -76,6 +114,7 @@ textarea {
     cursor: pointer;
     transition: all 200ms ease;
     font-weight: 500;
+    color: white;
 }
 
 .contactSubmitButton:hover {
@@ -97,6 +136,7 @@ textarea {
         flex-direction: column;
     }
     .c_title {
-        font-size: 40px;
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        width: 100%;
     }
 }

@@ -1,6 +1,7 @@
 
 import React from 'react'
 import './certifications.scss'
+import '../shared/animated-titles.scss'
 import AwsDevCert from '../../images/aws-cert-dev.png'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
@@ -24,7 +25,7 @@ export default function Certifications() {
     return(
         <div className="certifications">
             <div className="fade-in">
-                <h1 className="cert_title">Certifications</h1>
+                <h1 className="cert_title animated-title certifications-title">Certifications</h1>
             </div>
             <div className="fade-in cert-container">
                 <div className="cert-item">
