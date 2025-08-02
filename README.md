@@ -286,7 +286,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - 📧 Email: [jaybhatt2502@gmail.com](mailto:jaybhatt2502@gmail.com)
 - 💼 LinkedIn: [linkedin.com/in/jaybhatt25](https://linkedin.com/in/jaybhatt25)
 - 🐱 GitHub: [github.com/JayBhatt25](https://github.com/JayBhatt25)
-- 🌐 Portfolio: [jaybhatt25.github.io/my-Portfolio](https://jaybhatt25.github.io/my-Portfolio)
+- 🌐 Portfolio: [https://jay-bhatt-portfolio.web.app/](https://jay-bhatt-portfolio.web.app/)
 
 ---
 
