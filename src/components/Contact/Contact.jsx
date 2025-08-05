@@ -49,7 +49,7 @@ function Contact() {
     
   return (
     <div className="contact">
-       <div className="c_bg"></div>
+       {/* <div className="c_bg"></div> */}
        <div className="c_container">
            <div className="c_left">
                 <h1 className="c_title animated-title contact-title">Interested in my work ? Contact Me!</h1>

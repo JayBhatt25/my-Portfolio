@@ -7,17 +7,60 @@
 .App {
     scrollbar-width: none;
     overflow: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 100vh;
+}
+
+.App::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: all 0.3s ease;
 }
 
 .App.light-mode {
-    background-color: white;
-    color: black;
+    color: #333;
+}
+
+.App.light-mode::before {
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 247, 250, 0.8) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .App.dark-mode {
-    background-color: black;
-    color: white;
+    color: #e0e0e0;
+}
+
+.App.dark-mode::before {
+    background: 
+        /* Subtle star-like points of light */
+        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.8) 0px, transparent 1px),
+        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.6) 0px, transparent 1px),
+        radial-gradient(circle at 25% 80%, rgba(255, 255, 255, 0.7) 0px, transparent 1px),
+        radial-gradient(circle at 75% 70%, rgba(255, 255, 255, 0.5) 0px, transparent 1px),
+        radial-gradient(circle at 45% 35%, rgba(255, 255, 255, 0.4) 0px, transparent 1px),
+        radial-gradient(circle at 65% 85%, rgba(255, 255, 255, 0.6) 0px, transparent 1px),
+        radial-gradient(circle at 35% 60%, rgba(255, 255, 255, 0.3) 0px, transparent 1px),
+        radial-gradient(circle at 90% 45%, rgba(255, 255, 255, 0.5) 0px, transparent 1px),
+        radial-gradient(circle at 10% 65%, rgba(255, 255, 255, 0.4) 0px, transparent 1px),
+        radial-gradient(circle at 55% 20%, rgba(255, 255, 255, 0.7) 0px, transparent 1px),
+        /* Very subtle larger glow areas */
+        radial-gradient(circle at 20% 40%, rgba(10, 10, 15, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(5, 5, 10, 0.2) 0%, transparent 50%),
+        /* Primary black background */
+        linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(5, 5, 10, 0.95) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 /* Ensure navigation buttons are always clickable */
