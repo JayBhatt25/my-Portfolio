@@ -48,7 +48,7 @@ function Intro() {
                    
                 </div>
                 <div className="i_desc">
-                   <p>Software Engineer @ American Tire Distibutors with 2+ years of experience in crafting dependable and scalable software solutions actively seeking new full-time/contract prospects</p>
+                   <p>Software Engineer @ American Tire Distibutors with 2+ years of experience in crafting dependable and scalable software solutions</p>
                     <br></br> 
                 </div>
                 <div className="links">

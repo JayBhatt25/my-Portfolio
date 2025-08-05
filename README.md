@@ -10,7 +10,7 @@
 
 **A modern, responsive portfolio website showcasing my journey as a Full Stack Developer**
 
-[🚀 Live Demo](https://jaybhatt25.github.io/my-Portfolio/) | [📧 Contact](mailto:jaybhatt2502@gmail.com) | [💼 LinkedIn](https://linkedin.com/in/jaybhatt25)
+[🚀 Live Demo](https://jay-bhatt-portfolio.web.app/) | [📧 Contact](mailto:jaybhatt2502@gmail.com) | [💼 LinkedIn](https://linkedin.com/in/jaybhatt25)
 
 </div>
 

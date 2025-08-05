@@ -26,7 +26,6 @@ const timelineElements = [
         "Managed ongoing updates and enhancements, implementing 15 client-driven changes and strategically planning for future feature additions to align with evolving business needs"
         
       ],
-      link: "https://cyberdetectsolutions.com/",
       date: "Jan 2024 - Jan 2024",
       icon: "work",
     },
