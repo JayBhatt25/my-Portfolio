@@ -27,7 +27,7 @@ function Timeline() {
             lineColor={state.darkMode ? "white" : "black"}
             >
                 {timelineElements.map((element) => {
-                let isWorkIcon = element.icon == "work";
+                let isWorkIcon = element.icon === "work";
             
 
                 return (
@@ -50,11 +50,11 @@ function Timeline() {
                     <ul className="description-points">
                         {element?.description.map((desc) => {
                             return (
-                                <li><p>{desc}</p></li>
+                                <li key={desc}><p>{desc}</p></li>
                             )
                         })}
                     </ul>
-                    {element.link && (<a href={element.link} target="_blank" className="work-website-link">view website</a>)}
+                    {element.link && (<a href={element.link} target="_blank" rel="noreferrer" className="work-website-link">view website</a>)}
                     {element.gpa && (<h5>{element.gpa}</h5>)}
                     </VerticalTimelineElement>
                 );

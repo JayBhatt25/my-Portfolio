@@ -21,6 +21,8 @@ import sqlIcon from './images/icons8-sql-100.webp'
 import mongoIcon from './images/icons8-mongodb.svg'
 import firestoreIcon from './images/icons8-firestore.svg'
 import typescriptIcon from './images/icons8-typescript.svg'
+import angularIcon from './images/icons8-angular.svg'
+import redisIcon from './images/icons8-redis.svg'
 
 const skillsdata = [
     {
@@ -154,6 +156,18 @@ const skillsdata = [
         skillName: "TypeScript",
         img: typescriptIcon,
         categories: ["all","web"]
+    },
+    {
+        id: 23,
+        skillName: "Angular",
+        img: angularIcon,
+        categories: ["all","web"]
+    },
+    {
+        id: 24,
+        skillName: "Redis",
+        img: redisIcon,
+        categories: ["all","databases"]
     }
 ]
 
