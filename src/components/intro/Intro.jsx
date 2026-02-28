@@ -1,42 +1,22 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './intro.scss';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import JayResume from '../../files/Jay_Bhatt_SoftwareEngineer_Resume.pdf'
-
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 
 function Intro() {
+  const [setElements] = useIntersectionObserver({ threshold: 0 });
 
-  const introRef = useRef(null)
-  
   useEffect(() => {
-    const sliders = document.querySelectorAll(".fade-in");
-    
-    const appearOptions = {
-      threshold:0
-    }
-    
-    const appearOnScroll = new IntersectionObserver(function(entries,appearOnScroll){
-      entries.forEach(entry => {
-        if(!entry.isIntersecting){
-          return;
-        } else {
-          entry.target.classList.add("appear")
-          appearOnScroll.unobserve(entry.target)
-        }
-      })
-    },appearOptions)
+    const elements = document.querySelectorAll(".fade-in");
+    setElements(Array.from(elements));
+  }, [setElements]);
 
-    sliders.forEach(slider => {
-      appearOnScroll.observe(slider)
-    })
-  },[])
-
-  
   return (
-    <div className="index">
-        <div ref={introRef} className="i_left fade-in">
+    <div id="index" className="index">
+        <div className="i_left fade-in">
             <div className="l_container">
                 <h2 className="i_intro">Hello, I am</h2>
                 <h1 className="i_name">Jay Bhatt</h1>
@@ -47,7 +27,6 @@ function Intro() {
                         <div className="title_item">AWS Certified Developer</div>
                         <div className="title_item">PriceFx Configuration Engineer</div>
                     </div>
-                   
                 </div>
                 <div className="i_desc">
                    <p>Software Engineer @ American Tire Distibutors with 3+ years of experience in crafting dependable and scalable software solutions</p>
@@ -128,7 +107,6 @@ function Intro() {
         </svg>
         <div className="i_right">
             <div className="i_bg"></div>
-           {/* <img src={Me} className="i_img"></img> */}
         </div>
     </div>
   )

@@ -1,113 +1,55 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import './skills.scss'
 import '../shared/animated-titles.scss'
 import skillsData from '../../skillsData'
 import SkillItem from '../skill-item-component/skill-item'
-import downIcon from '../../images/icons8-thick-arrow-pointing-down-48.webp'
-import upIcon from '../../images/icons8-thick-arrow-pointing-up-48.webp'
-function Skills(){
-    const [activeCategory,setActiveCategory] = useState("web");
-    const [prevActiveCategory,setPrevActiveCategory] = useState("web");
-    const [visibleCategories, setVisibleCategories] = useState(false);
-    const [skillsFilteredData,setSkillsFilteredData] = useState([]);
-    const list = document.querySelector(".categories_list");
-    const directionImg = document.querySelector(".direction-btn");
-    const appearOptions = {
-        threshold:0
-      }
-    useEffect(() => {
-        const faders = document.querySelectorAll(".fade-in");
-        
-        const appearOnScroll = new IntersectionObserver(function(entries,appearOnScroll){
-          entries.forEach(entry => {
-            if(!entry.isIntersecting){
-              return;
-            } else {
-              entry.target.classList.add("appear")
-              appearOnScroll.unobserve(entry.target)
-            }
-          })
-        },appearOptions)
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
+
+function Skills() {
+    const [activeCategory, setActiveCategory] = useState("web");
     
-        faders.forEach(fader => {
-          appearOnScroll.observe(fader)
-        })
-      },[appearOptions])
+    const [setElements] = useIntersectionObserver({ threshold: 0.1 });
 
     useEffect(() => {
-        let temp = []
-        skillsData.forEach(skill => {
-            if(skill.categories.includes(activeCategory)){
-                const ret = temp.push(skill)
-            }
-        })
-        setSkillsFilteredData(temp)
+        const elements = document.querySelectorAll('.fade-in, .skill_item');
+        setElements(Array.from(elements));
+    }, [setElements, activeCategory]);
 
-    },[activeCategory,visibleCategories]);
+    const categories = [
+        { id: 'languages', label: 'Languages' },
+        { id: 'web', label: 'Web Development' },
+        { id: 'mobile', label: 'Mobile' },
+        { id: 'databases', label: 'Databases' }
+    ];
 
-    useEffect(() => {
-      const prevBtn = document.querySelector('#'+prevActiveCategory)
-      prevBtn?.classList.remove('selected')
-      const activeBtn = document.querySelector('#'+activeCategory)
-      activeBtn?.classList.add('selected')
-      
-
-    },[activeCategory])
-
-    const handleToggleList = () => {
-     
-
-      if(visibleCategories){
-        hideCategoriesList()
-        directionImg.src = downIcon
-      } else {
-        showCategoriesList()
-        directionImg.src = upIcon
-      }
-    }
-
-    const hideCategoriesList = () => {
-        list.classList.remove("show_categories_list")
-        list.classList.add("hide_categories")
-        setVisibleCategories(false)
-    }
-
-    const showCategoriesList = () => {
-      const categoryButton = document.querySelector(".categoriesBtn")
-      categoryButton.innerHTML = "Select Category"
-      list.classList.remove("hide_categories")
-        list.classList.add("show_categories_list")
-        setVisibleCategories(true)
-  }
-
-    const handleSelectCategory = (selectedCategory) => {
-      const categoryButton = document.querySelector(".categoriesBtn")
-      categoryButton.innerHTML = selectedCategory.toUpperCase()
-      setPrevActiveCategory(activeCategory)
-      setActiveCategory(selectedCategory)
-      hideCategoriesList()
-    }
+    const filteredSkills = useMemo(() => {
+        return skillsData.filter(skill => skill.categories.includes(activeCategory));
+    }, [activeCategory]);
 
     return (
         <div id='skills' className="skills">
             <h1 className="skills_title animated-title skills-title fade-in">SKILLS</h1>
-            <div className="skills_bottom">
-                <div className="sb_left fade-in">
-                    <div className="type_buttons">
-                      <div className="category_btn_div">
-                        <button className="tech_btn categoriesBtn" onClick={handleToggleList}>Select Category</button>
-                      </div>
-                        <div className="categories_list hide_categories">
-                          <button className='tech_btn' id='languages' onClick={() => handleSelectCategory("languages") } >Languages</button>
-                          <button className='tech_btn' id='databases' onClick={() => handleSelectCategory("databases") } >Databases</button>
-                          <button className='tech_btn' id='web' onClick={() => handleSelectCategory("web")}>Web</button>
-                          <button className='tech_btn' id='mobile' onClick={() => handleSelectCategory("mobile") }>Mobile</button>
-                        </div>
-                      </div>
-                </div>
-                <div className="sb_right fade-in">
-                    {skillsFilteredData.map((skill) =>(
-                        <SkillItem key={skill.id} skillName={skill.skillName} img={skill.img} categories={skill.categories} />
+            
+            <div className="skills_container fade-in">
+                <nav className="categories_nav">
+                    {categories.map((cat) => (
+                        <button 
+                            key={cat.id}
+                            className={`category_tab ${activeCategory === cat.id ? 'active' : ''}`}
+                            onClick={() => setActiveCategory(cat.id)}
+                        >
+                            {cat.label}
+                        </button>
+                    ))}
+                </nav>
+
+                <div className="skills_grid">
+                    {filteredSkills.map((skill) => (
+                        <SkillItem 
+                            key={skill.id} 
+                            skillName={skill.skillName} 
+                            img={skill.img} 
+                        />
                     ))}
                 </div>
             </div>

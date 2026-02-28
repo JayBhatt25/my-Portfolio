@@ -1,88 +1,142 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import './contact.scss'
 import '../shared/animated-titles.scss'
 import Phone from '../../images/phone.webp'
 import Email from '../../images/email.webp'
 import Address from '../../images/address.webp'
 import emailjs from '@emailjs/browser';
-import { useEffect } from 'react'
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 
 function Contact() {
-    let [user, setUser] = useState();
-    const [email, setEmail] = useState();
-    const [sub, setSub] = useState();
+    const [formData, setFormData] = useState({
+        user_name: '',
+        user_subject: '',
+        user_email: '',
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const formRef = useRef();
-    const [valid, setValid] = useState(false);
-    useEffect(() => {
-        validateForm();
-      },[user,email,sub, valid]);
-    const validateForm = () => {
+    
+    const [setElements] = useIntersectionObserver({ threshold: 0.1 });
 
-        if(!user ){
-            setValid(false);
-        } else if ( !email || !email.toLowerCase().match( /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
-            setValid(false);
-            
-        } else if(!sub){
-            setValid(false);
-        }
-        else {
-            setValid(true);
-        }
-    }
-    const handleSubmit = (e) => {
-       e.preventDefault();
+    useEffect(() => {
+        const elements = document.querySelectorAll('.fade-in, .c_container');
+        setElements(Array.from(elements));
+    }, [setElements]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const validateForm = () => {
+        const { user_name, user_email, user_subject, message } = formData;
+        if (!user_name || !user_subject || !message) return false;
         
-        validateForm();
-        if(valid){
-            emailjs.sendForm('service_rvagvju', 'template_2nrkm7h', formRef.current, 'user_gI6Fw8eRy2JAcEK2b8oBK')
-            .then((result) => {
-                document.getElementById('emailForm').reset();
-            }, (error) => {
-                console.log(error.text);
-            });
-        } else {
-            alert("Make sure all the values are filled");
+        const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return emailRegex.test(user_email.toLowerCase());
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+            alert("Please fill out all fields correctly.");
+            return;
         }
+
+        setIsSubmitting(true);
+
+        emailjs.sendForm(
+            process.env.REACT_APP_EMAILJS_SERVICE_ID,
+            process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+            formRef.current,
+            process.env.REACT_APP_EMAILJS_USER_ID
+        )
+        .then(() => {
+            alert("Thank you for your message! I'll get back to you soon.");
+            setFormData({
+                user_name: '',
+                user_subject: '',
+                user_email: '',
+                message: ''
+            });
+            setIsSubmitting(false);
+        })
+        .catch((error) => {
+            console.error("EmailJS Error:", error.text);
+            alert("Oops! Something went wrong. Please try again later.");
+            setIsSubmitting(false);
+        });
+    };
     
-   };
-    
-  return (
-    <div className="contact">
-       {/* <div className="c_bg"></div> */}
-       <div className="c_container">
-           <div className="c_left">
-                <h1 className="c_title animated-title contact-title">Interested in my work ? Contact Me!</h1>
-                <div className="c_info">
-                    <div className="c_info_item">
-                        <img src={Phone} alt="Phone img" className="c_icon" />
-                         +19802676925
+    return (
+        <div id="contact" className="contact fade-in">
+            <div className="c_container">
+                <div className="c_left">
+                    <h1 className="c_title animated-title contact-title">Interested in my work? Contact Me!</h1>
+                    <div className="c_info">
+                        <div className="c_info_item">
+                            <img src={Phone} alt="Phone" className="c_icon" />
+                            +1 980 267 6925
+                        </div>
+                        <div className="c_info_item">
+                            <img src={Email} alt="Email" className="c_icon" />
+                            jaybhatt2502@gmail.com
+                        </div>
+                        <div className="c_info_item">
+                            <img src={Address} alt="Address" className="c_icon" />
+                            Charlotte, NC
+                        </div>
                     </div>
-                    <div className="c_info_item">
-                        <img src={Email} alt="Email img" className="c_icon" />
-                         jaybhatt2502@gmail.com
-                    </div>
-                    <div className="c_info_item">
-                        <img src={Address} alt="Address img" className="c_icon" />
-                        Charlotte, NC
-                    </div>
-                    
                 </div>
-           </div>
-           <div className="c_right">
-                <p className="c_desc"> OR, You can simply fill out the form below with a message and your email and i will get to you as soon as i can.</p>
-                 <form id='emailForm' ref={formRef} onSubmit={handleSubmit}>
-                     <input id='user' type="text" value={user} onChange={(e) => setUser(e.target.value)} placeholder='Your Name' name="user_name"  required/>
-                     <input id='subject'type="text" value={sub} onChange={(e) => setSub(e.target.value)}  placeholder='Subject' name="user_subject"  required/>
-                     <input id='email' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Your email' name="user_email"  required/>
-                     <textarea rows="5" name="message"  required/>
-                     <button className='contactSubmitButton' onClick={handleSubmit}>Submit</button>
-                    
-                 </form>
-           </div>
-       </div>
-    </div>
-  )
+                <div className="c_right">
+                    <p className="c_desc">OR, simply fill out the form below with your message and email, and I'll get back to you as soon as I can.</p>
+                    <form ref={formRef} onSubmit={handleSubmit}>
+                        <input 
+                            type="text" 
+                            name="user_name"
+                            value={formData.user_name} 
+                            onChange={handleChange} 
+                            placeholder='Your Name' 
+                            required
+                        />
+                        <input 
+                            type="text" 
+                            name="user_subject"
+                            value={formData.user_subject} 
+                            onChange={handleChange} 
+                            placeholder='Subject' 
+                            required
+                        />
+                        <input 
+                            type="email" 
+                            name="user_email"
+                            value={formData.user_email} 
+                            onChange={handleChange} 
+                            placeholder='Your Email' 
+                            required
+                        />
+                        <textarea 
+                            rows="5" 
+                            name="message" 
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder="Your Message"
+                            required
+                        />
+                        <button 
+                            type="submit" 
+                            className='contactSubmitButton'
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? 'Sending...' : 'Submit'}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default Contact
