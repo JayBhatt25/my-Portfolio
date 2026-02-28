@@ -241,18 +241,24 @@
     gap: var(--gap, 1rem);
 }
 
-.primary-nav{
-    margin-top: 1rem;
-    margin-left: 10% ;
-    width: 40rem;
-    padding-left: auto;
-    padding-right: auto;
-    align-content: center;
+.primary-nav {
     list-style: none;
     background-color: white;
-    border-radius: 1em;
     transition: background-color 0.3s ease;
-    
+    display: flex;
+}
+
+@media screen and (min-width: 37em) {
+    .primary-nav {
+        margin-top: 1rem;
+        margin-inline: auto;
+        width: max-content;
+        max-width: 90vw;
+        padding: 0 1.5rem;
+        border-radius: 1em;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .primary-header.dark .primary-nav {
@@ -278,6 +284,7 @@
     padding: 0.5rem;
     position: relative;
     font-weight: bold;
+    white-space: nowrap;
     a { 
         text-decoration: none;
         display: flex;

@@ -1,5 +1,6 @@
 
-import React, { useEffect, useContext, useState } from 'react'
+
+import React, { useEffect, useContext, useState, useRef } from 'react'
 import {Link} from 'react-scroll'
 import './nav.scss'
 import { ThemeContext } from '../../context'
@@ -7,55 +8,28 @@ import { ThemeContext } from '../../context'
 function Nav(){
     const { state, dispatch } = useContext(ThemeContext);
     const [isScrolled, setIsScrolled] = useState(false);
-    
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navRef = useRef(null);
+    const toggleRef = useRef(null);
+
     useEffect(() => {
-        const primaryNav = document.querySelector(".primary-nav");
-        const navtoggle = document.querySelector(".mobile-nav-toggle");
-
-        const handleToggle = () => {
-            const visibility = primaryNav.getAttribute('data-visible')
-            if(visibility === 'false'){
-                primaryNav.setAttribute('data-visible', 'true')
-                navtoggle.setAttribute('aria-expanded','true')
-            } else {
-                primaryNav.setAttribute('data-visible', 'false')
-                navtoggle.setAttribute('aria-expanded','false')
-            }
-        };
-
         const handleClickOutside = (event) => {
-            // Check if navigation is open
-            const isNavOpen = primaryNav.getAttribute('data-visible') === 'true';
-            if (!isNavOpen) return;
+            if (!isMenuOpen) return;
 
-            // Check if we're in mobile layout or desktop scrolled state (when hamburger is visible)
             const isMobile = window.innerWidth <= 592;
             const isDesktopScrolled = window.innerWidth > 592 && isScrolled;
-            
+
             if (!isMobile && !isDesktopScrolled) return;
 
-            // Check if click is outside navigation and hamburger button
-            const isClickOutsideNav = !primaryNav.contains(event.target);
-            const isClickOutsideToggle = !navtoggle.contains(event.target);
-            
-            if (isClickOutsideNav && isClickOutsideToggle) {
-                primaryNav.setAttribute('data-visible', 'false');
-                navtoggle.setAttribute('aria-expanded', 'false');
+            if (navRef.current && !navRef.current.contains(event.target) && 
+                toggleRef.current && !toggleRef.current.contains(event.target)) {
+                setIsMenuOpen(false);
             }
         };
 
-        if (navtoggle && primaryNav) {
-            navtoggle.addEventListener('click', handleToggle);
-            document.addEventListener('click', handleClickOutside);
-        }
-
-        return () => {
-            if (navtoggle) {
-                navtoggle.removeEventListener('click', handleToggle);
-            }
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, [isScrolled])
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [isMenuOpen, isScrolled]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -63,17 +37,8 @@ function Nav(){
             if (introSection) {
                 const introBottom = introSection.offsetTop + introSection.offsetHeight;
                 const scrollPosition = window.scrollY;
-                
-                // Only apply scroll effect on desktop (screen width > 37em = 592px)
                 const isDesktop = window.innerWidth > 592;
-                
-                console.log('Scroll Debug:', {
-                    introBottom,
-                    scrollPosition,
-                    isDesktop,
-                    shouldScroll: scrollPosition > introBottom - 100
-                });
-                
+
                 if (isDesktop) {
                     setIsScrolled(scrollPosition > introBottom - 100);
                 } else {
@@ -83,96 +48,125 @@ function Nav(){
         };
 
         window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', handleScroll); // Handle window resize
+        window.addEventListener('resize', handleScroll);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleScroll);
         };
-    }, [])
-    
-    // Debug log for classes
-    console.log('Header classes:', `primary-header ${state.darkMode ? 'dark' : 'light'} ${isScrolled ? 'scrolled' : ''}`, 'isScrolled:', isScrolled);
-    
+    }, []);
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const closeMenu = () => setIsMenuOpen(false);
+
     return(
         <header className={`primary-header ${state.darkMode ? 'dark' : 'light'} ${isScrolled ? 'scrolled' : ''}`}>
             <button 
+                ref={toggleRef}
                 aria-controls='primary-nav' 
-                aria-expanded='false' 
+                aria-expanded={isMenuOpen}
                 className='mobile-nav-toggle'
+                onClick={toggleMenu}
                 style={{ pointerEvents: 'auto', zIndex: 1001 }}
             >
-                {/* <span className="sr-only">Toggle navigation</span> */}
             </button>
             <nav>
-                <ul id="primary-nav" className="primary-nav flex" data-visible="false">
+                <ul 
+                    id="primary-nav" 
+                    ref={navRef}
+                    className="primary-nav flex" 
+                    data-visible={isMenuOpen}
+                >
                     <button 
                         className="nav-close-button" 
-                        onClick={() => {
-                            const primaryNav = document.querySelector(".primary-nav");
-                            const navtoggle = document.querySelector(".mobile-nav-toggle");
-                            primaryNav.setAttribute('data-visible', 'false');
-                            navtoggle.setAttribute('aria-expanded','false');
-                        }}
+                        onClick={closeMenu}
                         aria-label="Close navigation"
                     >
                         ✕
                     </button>
                     <li className="active nav-item">
-                    
-                        <Link className='nav-links' activeClass="active"
-                        to="index"
-                        spy={true}
-                        smooth={true}
-                        hashSpy={true}
-                        duration={500}
-                        delay={500}
-                        isDynamic={true}>
-                        Home
+                        <Link 
+                            className='nav-links' 
+                            activeClass="active"
+                            to="index"
+                            spy={true}
+                            smooth={true}
+                            hashSpy={true}
+                            duration={500}
+                            delay={500}
+                            isDynamic={true}
+                            onClick={closeMenu}
+                        >
+                            Home
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="projects" className='nav-links' spy={true}
-                        smooth={true}
-                        hashSpy={true}
-                        duration={500}
-                        delay={500}>
+                        <Link 
+                            to="projects" 
+                            className='nav-links' 
+                            spy={true}
+                            smooth={true}
+                            hashSpy={true}
+                            duration={500}
+                            delay={500}
+                            onClick={closeMenu}
+                        >
                             Projects
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="certifications" className='nav-links' spy={true}
-                        smooth={true}
-                        hashSpy={true}
-                        duration={500}
-                        delay={500}>
+                        <Link 
+                            to="certifications" 
+                            className='nav-links' 
+                            spy={true}
+                            smooth={true}
+                            hashSpy={true}
+                            duration={500}
+                            delay={500}
+                            onClick={closeMenu}
+                        >
                             Certifications
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="skills" className='nav-links' spy={true}
-                        smooth={true}
-                        hashSpy={true}
-                        duration={500}
-                        delay={500}>
+                        <Link 
+                            to="skills" 
+                            className='nav-links' 
+                            spy={true}
+                            smooth={true}
+                            hashSpy={true}
+                            duration={500}
+                            delay={500}
+                            onClick={closeMenu}
+                        >
                             Skills
                         </Link>
                     </li>
                     <li className="nav-item small-font">
-                        <Link className='nav-links' to="timeline" spy={true}
-                        smooth={true}
-                        hashSpy={true}
-                        duration={500}
-                        delay={500}>
+                        <Link 
+                            className='nav-links' 
+                            to="timeline" 
+                            spy={true}
+                            smooth={true}
+                            hashSpy={true}
+                            duration={500}
+                            delay={500}
+                            onClick={closeMenu}
+                        >
                            <span>Education & Exp</span>
                         </Link>
                     </li>
                     <li className="nav-item">
-                    <Link className='nav-links' to="contact" spy={true}
-                        smooth={true}
-                        hashSpy={true}
-                        duration={500}
-                        delay={500}>
+                        <Link 
+                            className='nav-links' 
+                            to="contact" 
+                            spy={true}
+                            smooth={true}
+                            hashSpy={true}
+                            duration={500}
+                            delay={500}
+                            onClick={closeMenu}
+                        >
                             Contact
                         </Link>
                     </li>
@@ -180,10 +174,7 @@ function Nav(){
             </nav>
             <button 
                 className="theme-toggle" 
-                onClick={() => {
-                    console.log('Theme toggle clicked, current mode:', state.darkMode);
-                    dispatch({ type: "TOGGLE" });
-                }}
+                onClick={() => dispatch({ type: "TOGGLE" })}
                 aria-label="Toggle dark mode"
                 style={{ pointerEvents: 'auto', zIndex: 1000 }}
             >
@@ -191,7 +182,6 @@ function Nav(){
             </button>
         </header>
     )
-
 }
 
 export default Nav

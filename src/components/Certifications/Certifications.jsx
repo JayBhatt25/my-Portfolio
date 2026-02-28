@@ -33,7 +33,7 @@ export default function Certifications() {
                     <div className="cert-item-right">
                         <h2>{items[0].certName}</h2>
                         {items[0].desc.map((item, i) => (
-                            <p key={item.id}>{item}</p>
+                            <p key={i}>{item}</p>
                         ))}
                         <a href={items[0].certLink} className="certLink-btn" target="_blank" rel="noreferrer">View Badge <span className="openinnewIcon"><OpenInNewIcon /></span></a>
                     </div>
