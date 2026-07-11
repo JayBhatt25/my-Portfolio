@@ -1,12 +1,10 @@
 
 import './App.css';
-import Intro from './components/intro/Intro';
-import Projects from './components/projects/Projects';
-import Contact from './components/Contact/Contact';
-import Timeline from './components/timeline/Timeline';
+import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Nav'
-import Skills from './components/skills/skills'
-import Certifications from './components/Certifications/Certifications'
+import Home from './components/Home/Home';
+import ArtifactsGallery from './components/artifacts/ArtifactsGallery';
+import ArtifactDetail from './components/artifact-detail/ArtifactDetail';
 import { useContext } from 'react';
 import { ThemeContext } from './context';
 
@@ -16,12 +14,11 @@ function App() {
   return (
     <div className={`App ${state.darkMode ? 'dark-mode' : 'light-mode'}`}>
         <Navigation />
-        <Intro />
-        <Timeline />
-        <Certifications />
-        <Projects />
-        <Skills />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/artifacts" element={<ArtifactsGallery />} />
+          <Route path="/artifacts/:slug" element={<ArtifactDetail />} />
+        </Routes>
     </div>
   );
 }
