@@ -1,7 +1,8 @@
 
 
 import React, { useEffect, useContext, useState, useRef } from 'react'
-import {Link} from 'react-scroll'
+import { NavLink } from 'react-router-dom'
+import ScrollLink from './ScrollLink'
 import './nav.scss'
 import { ThemeContext } from '../../context'
 
@@ -21,7 +22,7 @@ function Nav(){
 
             if (!isMobile && !isDesktopScrolled) return;
 
-            if (navRef.current && !navRef.current.contains(event.target) && 
+            if (navRef.current && !navRef.current.contains(event.target) &&
                 toggleRef.current && !toggleRef.current.contains(event.target)) {
                 setIsMenuOpen(false);
             }
@@ -34,16 +35,21 @@ function Nav(){
     useEffect(() => {
         const handleScroll = () => {
             const introSection = document.querySelector('.index');
+            const isDesktop = window.innerWidth > 592;
+
             if (introSection) {
                 const introBottom = introSection.offsetTop + introSection.offsetHeight;
                 const scrollPosition = window.scrollY;
-                const isDesktop = window.innerWidth > 592;
 
                 if (isDesktop) {
                     setIsScrolled(scrollPosition > introBottom - 100);
                 } else {
                     setIsScrolled(false);
                 }
+            } else if (isDesktop) {
+                setIsScrolled(window.scrollY > 100);
+            } else {
+                setIsScrolled(false);
             }
         };
 
@@ -61,9 +67,9 @@ function Nav(){
 
     return(
         <header className={`primary-header ${state.darkMode ? 'dark' : 'light'} ${isScrolled ? 'scrolled' : ''}`}>
-            <button 
+            <button
                 ref={toggleRef}
-                aria-controls='primary-nav' 
+                aria-controls='primary-nav'
                 aria-expanded={isMenuOpen}
                 className='mobile-nav-toggle'
                 onClick={toggleMenu}
@@ -71,109 +77,62 @@ function Nav(){
             >
             </button>
             <nav>
-                <ul 
-                    id="primary-nav" 
+                <ul
+                    id="primary-nav"
                     ref={navRef}
-                    className="primary-nav flex" 
+                    className="primary-nav flex"
                     data-visible={isMenuOpen}
                 >
-                    <button 
-                        className="nav-close-button" 
+                    <button
+                        className="nav-close-button"
                         onClick={closeMenu}
                         aria-label="Close navigation"
                     >
                         ✕
                     </button>
                     <li className="active nav-item">
-                        <Link 
-                            className='nav-links' 
-                            activeClass="active"
-                            to="index"
-                            spy={true}
-                            smooth={true}
-                            hashSpy={true}
-                            duration={500}
-                            delay={500}
-                            isDynamic={true}
-                            onClick={closeMenu}
-                        >
+                        <ScrollLink to="index" className='nav-links' onClick={closeMenu}>
                             Home
-                        </Link>
+                        </ScrollLink>
                     </li>
                     <li className="nav-item">
-                        <Link 
-                            to="projects" 
-                            className='nav-links' 
-                            spy={true}
-                            smooth={true}
-                            hashSpy={true}
-                            duration={500}
-                            delay={500}
+                        <NavLink
+                            to="/artifacts"
+                            className={({ isActive }) => `nav-links ${isActive ? 'active' : ''}`}
                             onClick={closeMenu}
                         >
+                            Artifacts
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <ScrollLink to="projects" className='nav-links' onClick={closeMenu}>
                             Projects
-                        </Link>
+                        </ScrollLink>
                     </li>
                     <li className="nav-item">
-                        <Link 
-                            to="certifications" 
-                            className='nav-links' 
-                            spy={true}
-                            smooth={true}
-                            hashSpy={true}
-                            duration={500}
-                            delay={500}
-                            onClick={closeMenu}
-                        >
+                        <ScrollLink to="certifications" className='nav-links' onClick={closeMenu}>
                             Certifications
-                        </Link>
+                        </ScrollLink>
                     </li>
                     <li className="nav-item">
-                        <Link 
-                            to="skills" 
-                            className='nav-links' 
-                            spy={true}
-                            smooth={true}
-                            hashSpy={true}
-                            duration={500}
-                            delay={500}
-                            onClick={closeMenu}
-                        >
+                        <ScrollLink to="skills" className='nav-links' onClick={closeMenu}>
                             Skills
-                        </Link>
+                        </ScrollLink>
                     </li>
                     <li className="nav-item small-font">
-                        <Link 
-                            className='nav-links' 
-                            to="timeline" 
-                            spy={true}
-                            smooth={true}
-                            hashSpy={true}
-                            duration={500}
-                            delay={500}
-                            onClick={closeMenu}
-                        >
+                        <ScrollLink to="timeline" className='nav-links' onClick={closeMenu}>
                            <span>Education & Exp</span>
-                        </Link>
+                        </ScrollLink>
                     </li>
                     <li className="nav-item">
-                        <Link 
-                            className='nav-links' 
-                            to="contact" 
-                            spy={true}
-                            smooth={true}
-                            hashSpy={true}
-                            duration={500}
-                            delay={500}
-                            onClick={closeMenu}
-                        >
+                        <ScrollLink to="contact" className='nav-links' onClick={closeMenu}>
                             Contact
-                        </Link>
+                        </ScrollLink>
                     </li>
                 </ul>
             </nav>
-            <button 
-                className="theme-toggle" 
+            <button
+                className="theme-toggle"
                 onClick={() => dispatch({ type: "TOGGLE" })}
                 aria-label="Toggle dark mode"
                 style={{ pointerEvents: 'auto', zIndex: 1000 }}

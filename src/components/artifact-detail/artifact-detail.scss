@@ -1,0 +1,120 @@
+.artifact-detail {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 8rem 1.5rem 4rem;
+
+    .artifact_detail_title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: 2.5rem;
+        text-align: center;
+    }
+
+    .artifact_field {
+        margin-bottom: 2.5rem;
+
+        .artifact_attachment {
+            display: flex;
+            justify-content: center;
+        }
+
+        .artifact_field_label {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: rgb(216, 60, 96);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(216, 60, 96, 0.3);
+        }
+
+        .artifact_field_text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .artifact_field_list {
+            padding-left: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .artifact_field_chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+
+            .artifact_chip {
+                padding: 0.4rem 1rem;
+                border-radius: 3rem;
+                font-size: 0.85rem;
+                font-weight: 600;
+                background: rgba(216, 60, 96, 0.15);
+                color: rgb(216, 60, 96);
+            }
+        }
+
+        .artifact_field_links {
+            padding-left: 1.5rem;
+            line-height: 1.8;
+
+            a {
+                color: rgb(216, 60, 96);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .download-btn {
+        width: 10rem;
+        border-radius: 2rem;
+        cursor: pointer;
+        font-weight: 600;
+        padding: 5px 10px;
+        text-transform: uppercase;
+        transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+        border: none;
+        background-color: #f0f0f0;
+        color: #222;
+    }
+
+    .download-btn:hover {
+        background-color: rgb(216, 60, 96);
+        color: white;
+        box-shadow: 0 0 15px rgba(216, 60, 96, 0.6);
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 1rem;
+        color: rgb(216, 60, 96);
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &.not-found {
+        text-align: center;
+
+        p {
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
+        }
+    }
+}
+
+.App.light-mode .artifact-detail .download-btn {
+    background-color: #f0f0f0;
+    color: #222;
+}
+
+.App.dark-mode .artifact-detail .download-btn {
+    background-color: #333;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .artifact-detail {
+        padding: 6rem 1rem 3rem;
+    }
+}

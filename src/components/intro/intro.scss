@@ -182,7 +182,7 @@
     font-weight: 600;
     padding: 5px 10px;
     text-transform: uppercase;
-    transition: 0.5s;
+    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
     border: none;
     background-color: #f0f0f0;
     color: #222;
@@ -200,10 +200,7 @@
 
 .download-btn:hover {
     background-color: rgb(216, 60, 96);
-    align-items: center;
-    text-align: center;
     color: white;
-    letter-spacing: 0.25em;
-    box-shadow: 0 0 35px rgb(216, 60, 96) ;
+    box-shadow: 0 0 15px rgba(216, 60, 96, 0.6);
 }
 
