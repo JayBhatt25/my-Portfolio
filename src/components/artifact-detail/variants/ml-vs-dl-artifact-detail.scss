@@ -1,0 +1,74 @@
+.mldl-comparison {
+    .mldl-comparison_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .mldl-card {
+        border-radius: 1rem;
+        padding: 1.5rem;
+        border: 1px solid rgba(var(--mldl-accent-rgb), 0.3);
+        background: rgba(var(--mldl-accent-rgb), 0.06);
+
+        &.mldl-card--ml {
+            --mldl-accent-rgb: 46, 134, 222;
+        }
+
+        &.mldl-card--dl {
+            --mldl-accent-rgb: 139, 92, 246;
+        }
+    }
+
+    .mldl-card_label {
+        display: inline-block;
+        padding: 0.3rem 0.9rem;
+        border-radius: 3rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        background: rgba(var(--mldl-accent-rgb), 0.18);
+        color: rgb(var(--mldl-accent-rgb));
+    }
+
+    .mldl-card_title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-top: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .mldl-card_block-heading {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        opacity: 0.65;
+        margin-top: 1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .mldl-card_text {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    .mldl-card_highlight {
+        margin-top: 0.75rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.6rem;
+        border-left: 3px solid rgb(var(--mldl-accent-rgb));
+        background: rgba(var(--mldl-accent-rgb), 0.12);
+
+        .mldl-card_block-heading {
+            margin-top: 0;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .mldl-comparison .mldl-comparison_grid {
+        grid-template-columns: 1fr;
+    }
+}
