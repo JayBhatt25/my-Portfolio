@@ -1,0 +1,116 @@
+.dlnn-architectures {
+    .dlnn-architectures_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .dlnn-arch-card {
+        border-radius: 1rem;
+        padding: 1.5rem;
+        border: 1px solid rgba(var(--dlnn-accent-rgb), 0.3);
+        background: rgba(var(--dlnn-accent-rgb), 0.06);
+
+        &.dlnn-arch-card--ann {
+            --dlnn-accent-rgb: 20, 184, 166;
+        }
+
+        &.dlnn-arch-card--cnn {
+            --dlnn-accent-rgb: 59, 130, 246;
+        }
+
+        &.dlnn-arch-card--rnn {
+            --dlnn-accent-rgb: 245, 158, 11;
+        }
+
+        &.dlnn-arch-card--gan {
+            --dlnn-accent-rgb: 168, 85, 247;
+        }
+    }
+
+    .dlnn-arch-card_tag {
+        display: inline-block;
+        padding: 0.3rem 0.9rem;
+        border-radius: 3rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        background: rgba(var(--dlnn-accent-rgb), 0.18);
+        color: rgb(var(--dlnn-accent-rgb));
+    }
+
+    .dlnn-arch-card_title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-top: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .dlnn-arch-card_block-heading {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        opacity: 0.65;
+        margin-top: 1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .dlnn-arch-card_text {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+}
+
+.dlnn-activations {
+    .dlnn-activation_row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-top: 1rem;
+    }
+
+    .dlnn-activation-card {
+        border-radius: 0.85rem;
+        padding: 1.25rem;
+        border: 1px solid rgba(216, 60, 96, 0.2);
+        background: rgba(216, 60, 96, 0.05);
+    }
+
+    .dlnn-activation-card_title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: rgb(216, 60, 96);
+        margin-bottom: 0.5rem;
+    }
+
+    .dlnn-activation-card_text {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}
+
+.dlnn-ethics {
+    .dlnn-ethics_callout {
+        border-radius: 0.85rem;
+        padding: 1.25rem 1.5rem;
+        border-left: 3px solid rgb(220, 38, 38);
+        background: rgba(220, 38, 38, 0.07);
+    }
+
+    .dlnn-ethics_text {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+}
+
+@media (max-width: 600px) {
+    .dlnn-architectures .dlnn-architectures_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dlnn-activations .dlnn-activation_row {
+        grid-template-columns: 1fr;
+    }
+}

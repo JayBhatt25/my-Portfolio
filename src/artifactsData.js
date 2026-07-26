@@ -67,6 +67,78 @@ const artifactsData = [
                 realWorldApplication: "Autonomous campus food-delivery bots navigate busy university sidewalks, crosswalks, and residential zones. By processing image and sensor data in real time using deep neural networks, they safely avoid pedestrians and obstacles, navigate campus geography, and ensure food is securely delivered to the correct customer."
             }
         ]
+    },
+    {
+        id: artifactId++,
+        slug: "deep-learning-neural-networks-quiz",
+        title: "Deep Learning and Neural Networks",
+        categories: ["all", "AI/ML"],
+        introduction: "This quiz covered the core building blocks of deep learning — how ANNs, CNNs, RNNs, and GANs each learn and what they're suited for — plus the role of activation functions and the ethical stakes of generative models that produce synthetic data.",
+        objective: [
+            "Describe Artificial Neural Networks (ANNs) and how they learn.",
+            "Describe Convolutional Neural Networks (CNNs) and how they work.",
+            "Describe Recurrent Neural Networks (RNNs) and how they work.",
+            "Describe Generative Adversarial Networks (GANs) and how they work.",
+            "Recognize the role of activation functions.",
+            "Consider the ethical implications of generating synthetic data, such as deepfakes."
+        ],
+        description: "Deep learning is a brain-inspired subset of AI and machine learning: layered \"artificial neurons\" adjust their connection weights based on feedback, echoing the Bayesian brain's prior-belief → sensory-input → prediction-update loop. But not every problem needs it — deciding whether to wear a coat needs a simple rule, not a 10-layer network. Deep learning earns its cost on raw, high-volume, high-complexity data, like medical images, where it can outperform manual review entirely.",
+        process: [
+            "Reviewed the AIML-500 lesson deck covering deep learning fundamentals, network architectures, and activation functions.",
+            "Read supplementary IBM articles (\"What is Deep Learning,\" \"What is a Neural Network,\" \"Deep Learning Architecture\") and a historical timeline of deep learning's development.",
+            "Compiled personal notes distilling the key ideas across every source into a single study reference.",
+            "Fed those notes to Claude and used it to generate a self-quiz, iteratively identifying and reinforcing weak areas until confident.",
+            "Completed the official quiz, scoring 30/30 on the first attempt."
+        ],
+        toolsAndTechnologies: ["Claude ( Self-quiz generation & prep )", "IBM Technology Articles", "AIML-500 Course Material"],
+        valueProposition: "Demonstrates a rigorous, source-grounded self-study loop for mastering deep learning fundamentals — not passive reading — validated by a perfect quiz score.",
+        uniqueValue: "Combines primary lesson material, external technical references, and AI-assisted iterative self-quizzing into one verifiable prep loop that closes knowledge gaps before assessment rather than after.",
+        relevance: "Establishes the architecture- and activation-function-level foundation needed to reason responsibly about applying deep learning in later, more applied coursework and projects — including its ethical limits.",
+        references: [
+            { label: "A.I.'s Black Boxes Just Got a Little Less Mysterious (NYT)", url: "https://www.nytimes.com/2024/05/21/technology/ai-language-models-anthropic.html" }
+        ],
+        architectures: [
+            {
+                name: "Artificial Neural Network",
+                tag: "ANN",
+                description: "The foundational neural network architecture, loosely modeled on the brain's neurons and connections.",
+                howItWorks: "Input passes through weighted connections across hidden layers to an output, and the network learns by adjusting those weights based on prediction error — mirroring the Bayesian brain's prior-belief → new-input → updated-prediction loop."
+            },
+            {
+                name: "Convolutional Neural Network",
+                tag: "CNN",
+                description: "Built for visual data, working similarly to how the eyes and brain process images.",
+                howItWorks: "Learns hierarchical filters — edges and textures in early layers, shapes and objects in deeper ones — letting it detect patterns (like abnormalities in X-rays or MRIs) without any hand-engineered features."
+            },
+            {
+                name: "Recurrent Neural Network",
+                tag: "RNN",
+                description: "Designed for sequential data, like sentences or time series.",
+                howItWorks: "Feeds information from previous steps back into the network to retain context, giving it a form of memory; LSTM extends this with a stronger memory for longer sequences."
+            },
+            {
+                name: "Generative Adversarial Network",
+                tag: "GAN",
+                description: "A pair of competing networks used to create new, synthetic data.",
+                howItWorks: "A generator produces synthetic examples while a discriminator tries to catch them, and the two are trained together in competition — pushing the generator toward increasingly realistic output. This is the mechanism behind synthetic media such as deepfakes."
+            }
+        ],
+        activationFunctionsIntro: "Activation functions introduce non-linearity into a network, letting it learn complex patterns instead of just simple math.",
+        activationFunctions: [
+            {
+                name: "Sigmoid",
+                description: "Outputs a value between 0 and 1 — like expressing a confidence level or probability."
+            },
+            {
+                name: "ReLU",
+                description: "Outputs the input if it's positive, otherwise zero — computationally efficient and widely used in hidden layers."
+            },
+            {
+                name: "Tanh",
+                description: "Outputs a value between -1 and 1 — like a signed intensity from strongly negative to strongly positive."
+            }
+        ],
+        ethicalConsiderations: "Deep learning's ability to generate highly realistic synthetic media (via GANs) carries real ethical weight. Because these models are largely \"black boxes\" — internally opaque even when their outputs can be observed — it's hard to audit why a piece of synthetic content was produced the way it was, or to reliably detect it in the wild. That opacity compounds the risks of deepfakes: misinformation, non-consensual impersonation, and manipulation of public opinion. Working responsibly with generative models means treating provenance and disclosure (such as watermarking or labeling synthetic content), consent for using someone's likeness, and the societal impact of deployment as first-class design constraints, not afterthoughts."
     }
 ];
 
