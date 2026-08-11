@@ -139,6 +139,65 @@ const artifactsData = [
             }
         ],
         ethicalConsiderations: "Deep learning's ability to generate highly realistic synthetic media (via GANs) carries real ethical weight. Because these models are largely \"black boxes\" — internally opaque even when their outputs can be observed — it's hard to audit why a piece of synthetic content was produced the way it was, or to reliably detect it in the wild. That opacity compounds the risks of deepfakes: misinformation, non-consensual impersonation, and manipulation of public opinion. Working responsibly with generative models means treating provenance and disclosure (such as watermarking or labeling synthetic content), consent for using someone's likeness, and the societal impact of deployment as first-class design constraints, not afterthoughts."
+    },
+    {
+        id: artifactId++,
+        slug: "data-challenge-scenarios-ai-coach",
+        title: "Navigating Data Challenges: An AI Coaching Activity",
+        categories: ["all", "AI/ML"],
+        introduction: "One-on-one scenario-based coaching with an AI chatbot on three real-world data challenges — missing data, data drift, and data imbalance — each resolved through discussion-driven reasoning rather than a lecture.",
+        description: "The activity paired each student with a pre-trained AI coach that posed a real-world ML data scenario and gave immediate feedback, letting the student reason toward the right approach through iterative discussion instead of being told the answer up front — mirroring how these problems actually surface and get diagnosed in industry.",
+        objective: [
+            "Discuss approaches for data processing and cleaning.",
+            "Explain the challenges of data sharing, privacy, and security in machine learning applications."
+        ],
+        process: [
+            "Worked through the Missing Data scenario, discussing multiple handling techniques and their trade-offs with the AI coach.",
+            "Worked through the Data Drift scenario, identifying the 3 types of drift and reasoning through which type was driving the described model degradation.",
+            "Worked through the Data Imbalance scenario, discussing techniques for correcting an overrepresented class.",
+            "Arrived at the correct approach for all three scenarios through iterative discussion with the coach."
+        ],
+        toolsAndTechnologies: ["SchoolAI.com ( AI Coach )", "Scenario-Based Learning"],
+        valueProposition: "Demonstrates the ability to reason through ambiguous, real-world data problems via structured discussion rather than rote recall, arriving at the right approach for each scenario.",
+        uniqueValue: "Combines three distinct, commonly-faced ML data challenges into one coached reasoning exercise — closer to how these issues actually appear (as a diagnosis problem) than a static reading assignment.",
+        relevance: "Data quality issues like missing values, drift, and imbalance are some of the most common practical failure points in deployed ML systems; being able to diagnose and reason through the right response is directly applicable to real industry work.",
+        scenarios: [
+            {
+                tag: "Missing Data",
+                title: "Handling Missing Values",
+                challenge: "A dataset has missing values for a specific situation, and the right handling technique needs to be chosen without introducing bias or losing valuable data.",
+                techniques: [
+                    "Listwise/pairwise deletion — simple, but risks losing data or introducing bias",
+                    "Mean/median/mode imputation — fast, but can distort variance",
+                    "Regression or model-based imputation — more accurate, more complex",
+                    "Flagging missingness as its own feature — preserves signal when data isn't missing at random"
+                ],
+                keyTakeaway: "The right technique depends on why the data is missing (MCAR/MAR/MNAR) and how much bias vs. data loss the situation can tolerate."
+            },
+            {
+                tag: "Data Drift",
+                title: "Diagnosing Degrading Model Performance",
+                challenge: "A model's performance is degrading in production, and the task is to identify which type of drift is the major driver.",
+                techniques: [
+                    "Concept Drift — the relationship between inputs and the target changes",
+                    "Data/Covariate Drift — the distribution of input features shifts, even if the input-output relationship stays the same",
+                    "Structural Drift — the underlying data-generating structure or schema itself changes"
+                ],
+                keyTakeaway: "Correctly identifying which type of drift is occurring determines the fix — retraining alone won't help if the real issue is structural."
+            },
+            {
+                tag: "Data Imbalance",
+                title: "Correcting an Overrepresented Class",
+                challenge: "One class is significantly overrepresented in the training data, skewing the model toward the majority class.",
+                techniques: [
+                    "Oversampling the minority class (e.g. SMOTE)",
+                    "Undersampling the majority class",
+                    "Class-weighting in the loss function",
+                    "Choosing evaluation metrics (precision/recall/F1) that aren't misleading under imbalance"
+                ],
+                keyTakeaway: "Accuracy alone is a bad signal on imbalanced data — both the resampling/weighting strategy and the evaluation metric need to account for the skew."
+            }
+        ]
     }
 ];
 
