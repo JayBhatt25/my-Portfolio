@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { scroller } from 'react-scroll'
 import Intro from '../intro/Intro';
+import ValueProposition from '../value-proposition/ValueProposition';
 import Timeline from '../timeline/Timeline';
 import Certifications from '../Certifications/Certifications';
 import Projects from '../projects/Projects';
@@ -22,6 +23,7 @@ function Home() {
     return (
         <>
             <Intro />
+            <ValueProposition />
             <Timeline />
             <Certifications />
             <Projects />

@@ -157,6 +157,16 @@
     }
 }
 
+.value-prop-title {
+    animation: fadeInUp 1s ease-out;
+
+    &::after {
+        content: '💡';
+        margin-left: 10px;
+        animation: bounceIn 1.5s ease-out 1s both;
+    }
+}
+
 .artifacts-title {
     animation: bounceIn 1.2s ease-out;
 
