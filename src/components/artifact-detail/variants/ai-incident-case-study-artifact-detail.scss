@@ -1,0 +1,99 @@
+.aics-summary_callout,
+.aics-reflection_callout {
+    border-radius: 0.85rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid rgb(var(--aics-callout-accent-rgb));
+    background: rgba(var(--aics-callout-accent-rgb), 0.07);
+}
+
+.aics-summary_callout {
+    --aics-callout-accent-rgb: 59, 130, 246;
+}
+
+.aics-reflection_callout {
+    --aics-callout-accent-rgb: 216, 60, 96;
+}
+
+.aics-callout_text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.aics-issues {
+    .aics-issues_grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .aics-card {
+        border-radius: 1rem;
+        padding: 1.5rem;
+        border: 1px solid rgba(var(--aics-accent-rgb), 0.3);
+        background: rgba(var(--aics-accent-rgb), 0.06);
+
+        &.aics-card--issue-1 {
+            --aics-accent-rgb: 239, 68, 68;
+        }
+
+        &.aics-card--issue-2 {
+            --aics-accent-rgb: 245, 158, 11;
+        }
+
+        &.aics-card--issue-3 {
+            --aics-accent-rgb: 139, 92, 246;
+        }
+    }
+
+    .aics-card_tag {
+        display: inline-block;
+        padding: 0.3rem 0.9rem;
+        border-radius: 3rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        background: rgba(var(--aics-accent-rgb), 0.18);
+        color: rgb(var(--aics-accent-rgb));
+    }
+
+    .aics-card_title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-top: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .aics-card_block-heading {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        opacity: 0.65;
+        margin-top: 1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .aics-card_text {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    .aics-card_highlight {
+        margin-top: 0.75rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.6rem;
+        border-left: 3px solid rgb(var(--aics-accent-rgb));
+        background: rgba(var(--aics-accent-rgb), 0.12);
+
+        .aics-card_block-heading {
+            margin-top: 0;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .aics-issues .aics-issues_grid {
+        grid-template-columns: 1fr;
+    }
+}
